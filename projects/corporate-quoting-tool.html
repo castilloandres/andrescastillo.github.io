@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <title>Corporate Quoting Tool | Andres Castillo Ormaechea</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="shortcut icon" href="../images/andres-castillo-think-outside-box.png" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+  </head>
+  <body>
+
+    <!-- Page Wrapper -->
+      <div id="page-wrapper">
+        <!-- Menu -->
+          <nav id="nav">
+              <ul>
+                <li><a href="../home.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+              </ul>
+          </nav>
+
+        <!-- Main -->
+          <article id="main">
+            <header>
+              <h2>Projects</h2>
+              <p>Corporate Quoting Tool</p>
+            </header>
+            <section class="wrapper style5">
+              <div class="inner">
+                <div class="row">
+                  <div class="content">
+                    <article>
+                      <h3 class="underline">About:</h3>
+                      <p>A corporate and real time quoting/budgeting tool for your business. Keep all your clients, companies and products in one place. Send professional quotes from any place in the world to all your clients in any currency you need.</p>
+                    </article>
+                    <article>
+                      <h3 class="underline">Team & Time:</h3>
+                      <p>All the development was done by myself and the support of my family in three months (part time).</p>
+                    </article>
+                    <article>
+                      <h3 class="underline">Team Dynamics:</h3>
+                      <h5>Agile & Kanban</h5>
+                      <p>A mix of Agile (moving quickly and easily) & physical Kanban was implemented.</p>
+                      <h5>Pivotal Tracker</h5>
+                      <p>Pivotal tracker was used as the software management tool to keep track of the user stories development.</p>
+                    </article>
+                    <article>
+                      <h3 class="underline" >Technology stack:</h3>
+                        <div class="6u 12u$(medium)">
+                          <img  class="image fit" src="../images/projects/corporate-quoting-tool/tech-stack-corporate-quoting-tool.png" alt="project-technologies-stack-corporate-quoting-tool">
+                        </div>
+                     </article>
+                     <article>
+                        <h3 class="underline" >Key Features:</h3>
+                        <ul>
+                          <li>Keep your business, clients, quotes/budgets in one place.</li>
+                          <li>Pick a currency and send professional quotes to clients in matter of seconds.</li>
+                          <li>Edit quotes on the fly to adjust them to the clients requirements.</li>
+                          <li>Monitor your business performance with monthly quote statistics and key performance indicators.</li>
+                        </ul>
+                     </article>
+                     <article>
+                      <div class="row">
+                        <div class="6u 12u$(medium)">
+                         <img class="image fit" src="../images/projects/corporate-quoting-tool/view-quotes-tool.jpg" alt="view-quotes-list">
+                        </div>
+                        <div class="6u 12u$(medium)">
+                          <img class="image fit" src="../images/projects/corporate-quoting-tool/create-new-quote.jpg" alt="create-new-quote">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="6u 12u$(medium)">
+                         <img class="image fit" src="../images/projects/corporate-quoting-tool/select-products.jpg" alt="select-quote-products">
+                        </div>
+                        <div class="6u 12u$(medium)">
+                          <img class="image fit" src="../images/projects/corporate-quoting-tool/view-quote-details.jpg" alt="view-edit-send-download-quote">
+                        </div>
+                      </div>
+                    </article>
+                      <article>
+                        <h4 class="underline">Fameworks and languages</h4>
+                        <ul>
+                          <li>Ruby version: 2.2.1</li>
+                          <li>Rails version: 4.2.3</li>
+                        </ul>
+                      </article>
+                      <article>
+                        <h4 class="underline">Deployment Platform</h4>
+                        <p>Heroku's platform is implemented for application deployment with two environments.</p>
+                        <p><strong>Development:</strong> where all features are tested before pushing to the production environment.</p>
+                        <p><strong>Production:</strong> where the live application is hosted.</p>
+                      </article>
+                      <article>
+                        <h4 class="underline">File uploads</h4>
+                        <p>File uploads is implemented with Carrierwave gem. File uploads is not possible with Heroku since files are deleted everytime code gets pushed and the dynos are restarted (happens considerably). Amazon Web Services S3 is the approach used for storing file uploads.</p>
+                      </article>
+                      <article>
+                        <h4 class="underline" >User Roles & Authentication</h4>
+                        <p>Devise gem is used for role-based authentication with two main roles:</p>
+                        <ul>
+                          <li>Administrator</li>
+                          <li>User</li>
+                        </ul>
+                      </article>
+                      <article>
+                        <h4 class="underline" >Test Coverage</h4>
+                        <h5>• Feature Specs</h5>
+                        <p>Front end tests that go thru the main features of the application making sure all the parts work together. Capybara technology is used so that filling out forms and clicking around the application happens automatically.</p>
+                        <h5>• Model Specs</h5>
+                        <p>Model tests make sure that the base of the application (classes/models, methods, datatypes) and all objects can interact keeping the integrity of the system.</p>
+                        <h5>• Controller Specs</h5>
+                        <p>Controller specs speak for themeselves. They make sure all the applications logic works as expected. A good approach when reading an applications code base for the first time is to go first to the controller tests since they are very verbose and should give you a good picture of the purpose, function and expectancy of each controller.</p>
+                        <h5>• View Specs</h5>
+                        <p>Tests the display of information in the applications templates.</p>
+                        <h5>• Integration specs</h5>
+                        <p>Tests all the parts of the application that were integrated. For example API´s and other platform requests or dependencies.</p>
+                      </article>
+                      <article>
+                        <h4 class="underline" >Real time currency and price calculation</h4>
+                        <p>Fixer.io API implementation to retreive real time currency values and send up to date quotes with actual market prices.</p>
+                      </article>
+                      <article>
+                        <h4 class="underline" >PDF rendering</h4>
+                        <p>WickedPDF gem is used for PDF rendering. This technology is capable of rendering html templates and stylesheets making it possible to generate quotes in PDF format to send the most international version of documents to your clients.</p>
+
+                      </article>
+                      <article class="align-center">
+                        <h3 class="underline">Project Demo</h3>
+                        <a href="../contact.html#message=Hi!%20I%20want%20credentials%20to%20check%20out%20the%20quoting/budgeting%20tool.%20Thanks!" class="button ">Request Credentials</a>
+                      </article>
+                    </div>
+                  </div>
+              </div>
+            </section>
+          </article>
+
+        <!-- Footer -->
+          <footer id="footer">
+            <ul class="icons">
+
+              <li><a href="https://es.linkedin.com/in/andrescastillo1" class="icon fa-linkedin"><span class="label">Linked-in</span></a></li>
+              <li><a href="https://github.com/castilloandres" class="icon fa-github"><span class="label">Github</span></a></li>
+              <li><a href="https://instagram.com/andrescastillo.es" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+              <li><a href="mailto:andres@andrescastillo.es" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+              <li><a href="https://twitter.com/ndrscastillo" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+            </ul>
+              <ul class="copyright">
+              <li>&copy; Andres Castillo Ormaechea</li>
+            </ul>
+
+          </footer>
+
+      </div>
+
+    <!-- Scripts -->
+      <script src="../assets/js/jquery.min.js"></script>
+      <script src="../assets/js/jquery.scrollex.min.js"></script>
+      <script src="../assets/js/jquery.scrolly.min.js"></script>
+      <script src="../assets/js/skel.min.js"></script>
+      <script src="../assets/js/util.js"></script>
+      <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+      <script src="../assets/js/main.js"></script>
+
+  </body>
+</html>
