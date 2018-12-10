@@ -84,7 +84,7 @@
 
                 <h4>Experiment #2:</h4>
                 <h5>What is a bad font size?</h5>
-                <p>Using the same base HTML file (1059 characters) I changed the font size to 20 pixels and turns out that the page fails the font size test:</p>
+                <p>Using the same base HTML file (1059 characters) I changed the font size to 20px and turns out that the page fails the font size test:</p>
 
                 <div class="6u 12u$(medium)">
                   <a href="../../images/blog/mobile-friendly/bad-font-size.png" class="image fit"><img src="../../images/blog/mobile-friendly/bad-font-size.png"></a>
@@ -111,7 +111,7 @@
 
                 <h4>Experiment #5:</h4>
                 <h5>What about text with <code>opacity:0</code></h5>
-                <p>I kept the same 1059 characters at 21px (good font size) and added 5323 characters (83% invisible text) at 20px (bad font size) with <code>opacity:0</code>. The result is the same as with Experiment #4. It failed:</p>
+                <p>I kept the same 1059 characters at 21px (good font size) and added 5323 characters  with <code>opacity:0</code> (83% invisible text) at 20px (bad font size). The result is the same as with Experiment #4. It failed:</p>
 
                 <div class="6u 12u$(medium)">
                   <a href="../../images/blog/mobile-friendly/opacity-zero.png" class="image fit"><img src="../../images/blog/mobile-friendly/opacity-zero.png"></a>
@@ -120,7 +120,7 @@
 
                 <h4>Experiment #6:</h4>
                 <h5>Let's try now with <code>visibility:hidden;</code></h5>
-                <p>I kept the same 1059 characters at 21px (good font size) and added 5323 characters (83% invisible text) at 20px (bad font size) with <code>visibility:hidden;</code>. The page passes the test so the CSS property <code>visibility:hidden;</code> is indeed considered in the Mobile-Friendly test:</p>
+                <p>I kept the same 1059 characters at 21px (good font size) and added 5323 characters with <code>visibility:hidden;</code> (83% invisible text) at 20px (bad font size). The page passes the test so the text with the CSS property <code>visibility:hidden;</code> is NOT considered in the Mobile-Friendly test:</p>
 
                 <div class="6u 12u$(medium)">
                   <a href="../../images/blog/mobile-friendly/visibility-hidden.png" class="image fit"><img src="../../images/blog/mobile-friendly/visibility-hidden.png"></a>
@@ -129,7 +129,7 @@
 
                 <h4>Experiment #7:</h4>
                 <h5>Last one with <code>display:none;</code></h5>
-                <p>With 1059 characters at 21px (good font size) and adding 5323 characters (83% invisible text) at 20px (bad font size) with <code>display:none;</code>. The page passes the test so the CSS property <code>visibility:hidden;</code> is indeed considered in the Mobile-Friendly test:</p>
+                <p>With 1059 characters at 21px (good font size) and adding 5323 characters with <code>display:none;</code> (83% invisible text) at 20px (bad font size). The page passes the test so the text with CSS property <code>display:none;</code> is NOT considered in the Mobile-Friendly test:</p>
 
                 <div class="6u 12u$(medium)">
                   <a href="../../images/blog/mobile-friendly/display-none.png" class="image fit"><img src="../../images/blog/mobile-friendly/display-none.png"></a>
@@ -138,7 +138,7 @@
 
                 <p><strong>Note 1:</strong> for experiments #4, #5, #6, and #7 no viewport was added in the mix since it will make the Mobile-Friendly test pass and thus skew our results.</p>
 
-                <p><strong>Note 2:</strong> for all experiments very basic, plain and simple tests were done since the algorithm seems to have heuristics and a lot of specific use cases.</p>
+                <p><strong>Note 2:</strong> for all experiments very basic, plain and simple tests were done since the algorithm seems to have heuristics and a lot of specific use cases (no, it is not open-sourced).</p>
 
                 <h4>Conclusions:</h4>
                 <p>After running some interesting experiments and answering a lot of Google re-captchas (thought for a second that I was working for Google as a Neural Network Trainer) we can conclude the following for Google's "Mobile Friendly Test" tool.</p>
