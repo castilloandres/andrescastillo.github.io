@@ -142,11 +142,11 @@
 
                 <h4>Conclusions:</h4>
                 <p>After running some interesting experiments and answering a lot of Google re-captchas (thought for a second that I was working for Google as a Neural Network Trainer) we can conclude the following for Google's "Mobile Friendly Test" tool.</p>
-                <p>• Invisible text (same text color and background) is considered in the font size test.</p>
+                <p>• Invisible text (same text color and background) will not be detected in the font size test.</p>
+                <p>• Text with <code>opacity:0;</code> will not be detected in the font size test.</p>
                 <p>• Always double check viewport tags in your pages. It's a low hanging fruit!</p>
-                <p>• Text with <code>opacity:0;</code> is also considered in the font size test.</p>
-                <p>• Text with <code>visibility:hidden;</code> is not considered in the font size test.</p>
-                <p>• Text with <code>display:none;</code> is not considered in the font size test.</p>
+                <p>• Text with <code>visibility:hidden;</code> will be detected in the font size test.</p>
+                <p>• Text with <code>display:none;</code> will be detected in the font size test.</p>
                 <p>• Would be nice if Google would open source this project so we can contribute to it since its very important specially for the fact given that the number of smartphone users will arise in the upcoming years.</p>
               </div>
             </section>
