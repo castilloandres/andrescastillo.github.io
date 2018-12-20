@@ -1468,7 +1468,7 @@
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #fff;
-		font-weight: 800;
+		font-weight: 600;
 		letter-spacing: 0.225em;
 		line-height: 1em;
 		margin: 0 0 1em 0;
@@ -1480,8 +1480,13 @@
 			text-decoration: none;
 		}
 
+	h1 {
+		font-size: 1.7em;
+		line-height: 1.75em;
+	}
+
 	h2 {
-		font-size: 1.35em;
+		font-size: 1.5em;
 		line-height: 1.75em;
 	}
 
@@ -3344,7 +3349,7 @@
 
 /* Header */
 
-/*	#header {
+	#header {
 		-moz-transition: background-color 0.2s ease;
 		-webkit-transition: background-color 0.2s ease;
 		-ms-transition: background-color 0.2s ease;
@@ -3475,7 +3480,7 @@
 				pointer-events: none;
 				opacity: 0;
 			}
-*/
+
 /* Banner */
 
 	#banner {
@@ -3746,6 +3751,11 @@
 		#main > header h2 {
 			font-size: 1.75em;
 			margin: 0 0 0.5em 0;
+		}
+
+		#main > header h1 span {
+			font-size: 1.8em;
+			line-height: 1.65em;
 		}
 
 		#main > header p {
