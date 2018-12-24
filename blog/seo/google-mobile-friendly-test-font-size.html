@@ -11,7 +11,7 @@
 
       gtag('config', 'UA-64326807-3');
     </script>
-    <title>Google's Mobile-Friendly Test tool: font size</title>
+    <title>How font size works in Google's Mobile-Friendly Test tool</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="How font size works in Google's Mobile Friendly Test tool. What font size should my page have on mobile devices? Does google take into account when analyzing on-page invisible text? opacity? display and visibility CSS properties?">
@@ -20,6 +20,108 @@
     <link rel="stylesheet" href="../../assets/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <script type="application/ld+json">
+    { "@context": "http://schema.org",
+     "@type": "BlogPosting",
+     "headline": "How font size works in Google's Mobile-Friendly Test tool",
+     "image": "https://www.castilloandres.com/images/blog/mobile-friendly/good-font-size.png",
+     "genre": "SEO",
+     "wordcount": "759",
+     "url": "https://www.castilloandres.com/blog/seo/google-mobile-friendly-test-font-size.html",
+     "publisher":
+      {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Andres Castillo"
+     },
+     "datePublished": "2018-12-05",
+     "dateCreated": "2018-12-05",
+     "dateModified": "2018-12-24",
+     "mainEntityOfPage": {
+       "@type": "Blog",
+       "@id": "https://www.castilloandres.com/"
+      },
+     "description": "What font size should my page have on mobile devices according to Gooogle Mobile Friendly test tool? Does it take into account when analyzing on-page invisible text? opacity? display and visibility CSS properties?",
+     "articleBody": "What font size should my page have on mobile devices according to Gooogle Mobile Friendly test tool? Does it take into account when analyzing on-page invisible text? opacity? display and visibility CSS properties?
+
+    A BIT OF CONTEXT FIRST.
+    It is very important to make your website readable from a mobile device since it is predicted that there will be 2.7 billion smartphone users in 2019. 
+
+    • Source: https://www.statista.com/statistics/330695/number-of-smartphone-users-worldwide/
+
+    It is recommended by Google that the font size of your site on a mobile device should be at least 12 pixels.
+
+    • Source: https://developers.google.com/web/tools/lighthouse/audits/font-sizes/
+    • Source: https://www.thinkwithgoogle.com/intl/en-gb/consumer-insights/build-a-great-user-experience/
+
+    You can test this first in a tool called Lighthouse that is a tool for improving the quality of a website. There is a particular section in Lighthouse that refers to the Mobile Friendly Test that is also a tool by Google to check the quality of your website but instead in mobile devices. The interesting thing here is that the Mobile Friendly Test tool is NOT open sourced. So I decided to do some experiments regarding font size detection in mobile devices.
+
+    EXPERIMENT #1:
+    WHAT IS A GOOD FONT SIZE?
+    I set a base text (1059 characters) in a plain HTML file and started changing the font size and running it against the Mobile-Friendly tool. Turns out that the minimum required font size so that the page passes the test is when setting it to >= 21px:
+    • Source: https://search.google.com/test/mobile-friendly?id=REqe8liXkTVa8iMSVd5j4w
+
+    EXPERIMENT #2:
+    WHAT IS A BAD FONT SIZE?
+    Using the same base HTML file (1059 characters) I changed the font size to 20px and turns out that the page fails the font size test:
+    • Source: https://search.google.com/test/mobile-friendly?id=cFclgsqXxy--ZyQzxUvmMg
+
+    EXPERIMENT #3:
+    WILL ADDING A VIEWPORT FIX ANYTHING?
+    Using the same base HTML file (1059 characters at 20 px) I added a viewport meta tag and it happens so that the page passes the font size test. So, again, remember the importance of the mobile viewport tag. The things it can do for such little effort:
+    • Source: https://search.google.com/test/mobile-friendly?id=q2GC-pEA57f4RQZvWluwUg
+
+    EXPERIMENT #4:
+    IS TEXT WITH THE SAME COLOR AS THE BACKGROUND (A.K.A INVISIBLE TEXT) CONSIDERED IN THE FONT SIZE TEST?
+    Using a plain HTML file with 1059 characters at 21px (a good font size) I added 5323 characters at 20px (bad font size) with the same color as the background which is roughly 83% of invisible text on the page. The result is that indeed invisible text is considered when analyzing on-page text:
+    • Source: https://search.google.com/test/mobile-friendly?id=CU1EYq60cJIwN7d71rPtVg
+
+    EXPERIMENT #5:
+    WHAT ABOUT TEXT WITH OPACITY:0
+    I kept the same 1059 characters at 21px (good font size) and added 5323 characters with opacity:0 (83% invisible text) at 20px (bad font size). The result is the same as with Experiment #4. It failed:
+    • Source: https://search.google.com/test/mobile-friendly?id=oU4FWqss5p9yPQmSgVsKIA
+
+    EXPERIMENT #6:
+    LET'S TRY NOW WITH VISIBILITY:HIDDEN;
+    I kept the same 1059 characters at 21px (good font size) and added 5323 characters with visibility:hidden; (83% invisible text) at 20px (bad font size). The page passes the test so the text with the CSS property visibility:hidden; is NOT considered in the Mobile-Friendly test:
+    • Source: https://search.google.com/test/mobile-friendly?id=rw6ySrMeBceClojTVetOOA
+
+    EXPERIMENT #7:
+    LAST ONE WITH DISPLAY:NONE;
+    With 1059 characters at 21px (good font size) and adding 5323 characters with display:none; (83% invisible text) at 20px (bad font size). The page passes the test so the text with CSS property display:none; is NOT considered in the Mobile-Friendly test:
+    • Source: https://search.google.com/test/mobile-friendly?id=jyYcBViQ6HLVydDMtXn70g
+
+    Note 1: for experiments #4, #5, #6, and #7 no viewport was added in the mix since it will make the Mobile-Friendly test pass and thus skew our results.
+
+    Note 2: for all experiments very basic, plain and simple tests were done since the algorithm seems to have heuristics and a lot of specific use cases (no, it is not open-sourced).
+
+    CONCLUSIONS:
+    After running some interesting experiments and answering a lot of Google re-captchas (thought for a second that I was working for Google as a Neural Network Trainer) we can conclude the following for Googles Mobile Friendly Test tool.
+
+    • Invisible text (same text color and background) will not be detected in the font size test.
+
+    • Text with opacity:0; will not be detected in the font size test.
+
+    • Always double check viewport tags in your pages. Its a low hanging fruit!
+
+    • Text with visibility:hidden; will be detected in the font size test.
+
+    • Text with display:none; will be detected in the font size test.
+
+    • Would be nice if Google would open source this project so we can contribute to it since its very important specially for the fact given that the number of smartphone users will arise in the upcoming years."
+    ,
+     "author": {
+        "@type": "Person",
+        "name": "Andres Castillo",
+        "additionalName" : "Andres Castillo Ormaechea"
+      },
+      "editor": {
+        "@type": "Person",
+        "name": "Andres Castillo",
+        "additionalName" : "Andres Castillo Ormaechea"
+      }
+     }
+  </script>
   </head>
   <body>
 
@@ -36,7 +138,7 @@
               </ul>
           </nav>
         <!-- Main -->
-        <div itemscope itemtype="http://schema.org/Article">
+        <div itemscope itemtype="http://schema.org/BlogPosting">
           <article id="main">
             <header style="background-image:url('../../images/blog/mobile-friendly/bad-font-size-background.png')">
               <h1><span itemprop="name">Google's Mobile-Friendly Test tool: font size</span></h1>
@@ -46,7 +148,8 @@
             </header>
             <section class="wrapper style5">
               <div class="inner">
-                <p>What font size should my page have on mobile devices? Does google take into account when analyzing on-page invisible text? opacity? display and visibility CSS properties?</p>
+                <span itemprop="articleBody">
+                <p>What font size should my page have on mobile devices according to Gooogle Mobile Friendly test tool? Does it take into account when analyzing on-page invisible text? opacity? display and visibility CSS properties?</p>
 
                 <h3>A bit of context first.</h3>
                 <p>It is very important to make your website readable from a mobile device since it is predicted that there will be 2.7 billion smartphone users in 2019:</p>
@@ -82,7 +185,7 @@
                 <div class="6u 12u$(medium)">
                   <a href="../../images/blog/mobile-friendly/good-font-size.png" class="image fit"><img src="../../images/blog/mobile-friendly/good-font-size.png" alt="Google Mobile Friendly test - mobile friendly page" title="See Google Mobile Friendly test - mobile friendly page"></a>
                 </div>
-                <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=REqe8liXkTVa8iMSVd5j4w" target="_blank">https://search.google.com/test/mobile-friendly?id=REqe8liXkTVa8iMSVd5j4w</p>
+                <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=REqe8liXkTVa8iMSVd5j4w" target="_blank">https://search.google.com/test/mobile-friendly?id=REqe8liXkTVa8iMSVd5j4w</a></p>
 
                 <h4>Experiment #2:</h4>
                 <h5>What is a bad font size?</h5>
@@ -91,7 +194,7 @@
                 <div class="6u 12u$(medium)">
                   <a href="../../images/blog/mobile-friendly/bad-font-size.png" class="image fit"><img src="../../images/blog/mobile-friendly/bad-font-size.png" alt="Google Mobile Friendly test - not mobile friendly page" title="See Google Mobile Friendly test - not mobile friendly page"></a>
                 </div>
-                <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=cFclgsqXxy--ZyQzxUvmMg" target="_blank">https://search.google.com/test/mobile-friendly?id=cFclgsqXxy--ZyQzxUvmMg</p>
+                <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=cFclgsqXxy--ZyQzxUvmMg" target="_blank">https://search.google.com/test/mobile-friendly?id=cFclgsqXxy--ZyQzxUvmMg</a></p>
 
                 <h4>Experiment #3:</h4>
                 <h5>Will adding a viewport fix anything?</h5>
@@ -100,7 +203,7 @@
                 <div class="6u 12u$(medium)">
                   <a href="../../images/blog/mobile-friendly/adding-viewport.png" class="image fit"><img src="../../images/blog/mobile-friendly/bad-font-size-with-viewport.png" alt="Google Mobile Friendly test - mobile friendly page" title="See Google Mobile Friendly test - mobile friendly page"></a>
                 </div>
-                <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=q2GC-pEA57f4RQZvWluwUg" target="_blank">https://search.google.com/test/mobile-friendly?id=q2GC-pEA57f4RQZvWluwUg</p>
+                <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=q2GC-pEA57f4RQZvWluwUg" target="_blank">https://search.google.com/test/mobile-friendly?id=q2GC-pEA57f4RQZvWluwUg</a></p>
 
                 <h4>Experiment #4:</h4>
                 <h5>Is text with the same color as the background (a.k.a invisible text) considered in the font size test?</h5>
@@ -109,7 +212,7 @@
                 <div class="6u 12u$(medium)">
                   <a href="../../images/blog/mobile-friendly/invisible-text.png" class="image fit"><img src="../../images/blog/mobile-friendly/invisible-text.png" alt="Google Mobile Friendly test - not mobile friendly page" title="See Google Mobile Friendly test - not mobile friendly page"></a>
                 </div>
-                <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=CU1EYq60cJIwN7d71rPtVg" target="_blank">https://search.google.com/test/mobile-friendly?id=CU1EYq60cJIwN7d71rPtVg</p>
+                <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=CU1EYq60cJIwN7d71rPtVg" target="_blank">https://search.google.com/test/mobile-friendly?id=CU1EYq60cJIwN7d71rPtVg</a></p>
 
                 <h4>Experiment #5:</h4>
                 <h5>What about text with <code>opacity:0</code></h5>
@@ -118,7 +221,7 @@
                 <div class="6u 12u$(medium)">
                   <a href="../../images/blog/mobile-friendly/opacity-zero.png" class="image fit"><img src="../../images/blog/mobile-friendly/opacity-zero.png" alt="Google Mobile Friendly test - not mobile friendly page" title="See Google Mobile Friendly test - not mobile friendly page"></a>
                 </div>
-                <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=oU4FWqss5p9yPQmSgVsKIA" target="_blank">https://search.google.com/test/mobile-friendly?id=oU4FWqss5p9yPQmSgVsKIA</p>
+                <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=oU4FWqss5p9yPQmSgVsKIA" target="_blank">https://search.google.com/test/mobile-friendly?id=oU4FWqss5p9yPQmSgVsKIA</a></p>
 
                 <h4>Experiment #6:</h4>
                 <h5>Let's try now with <code>visibility:hidden;</code></h5>
@@ -127,7 +230,7 @@
                 <div class="6u 12u$(medium)">
                   <a href="../../images/blog/mobile-friendly/visibility-hidden.png" class="image fit"><img src="../../images/blog/mobile-friendly/visibility-hidden.png" alt="Google Mobile Friendly test - mobile friendly page" title="See Google Mobile Friendly test - mobile friendly page"></a>
                 </div>
-                <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=rw6ySrMeBceClojTVetOOA" target="_blank">https://search.google.com/test/mobile-friendly?id=rw6ySrMeBceClojTVetOOA</p>
+                <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=rw6ySrMeBceClojTVetOOA" target="_blank">https://search.google.com/test/mobile-friendly?id=rw6ySrMeBceClojTVetOOA</a></p>
 
                 <h4>Experiment #7:</h4>
                 <h5>Last one with <code>display:none;</code></h5>
@@ -136,7 +239,7 @@
                 <div class="6u 12u$(medium)">
                   <a href="../../images/blog/mobile-friendly/display-none.png" class="image fit"><img src="../../images/blog/mobile-friendly/display-none.png" alt="Google Mobile Friendly test - mobile friendly page" title="See Google Mobile Friendly test - mobile friendly page"></a>
                 </div>
-                <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=jyYcBViQ6HLVydDMtXn70g" target="_blank">https://search.google.com/test/mobile-friendly?id=jyYcBViQ6HLVydDMtXn70g</p>
+                <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=jyYcBViQ6HLVydDMtXn70g" target="_blank">https://search.google.com/test/mobile-friendly?id=jyYcBViQ6HLVydDMtXn70g</a></p>
 
                 <p><strong>Note 1:</strong> for experiments #4, #5, #6, and #7 no viewport was added in the mix since it will make the Mobile-Friendly test pass and thus skew our results.</p>
 
@@ -150,6 +253,7 @@
                 <p>• Text with <code>visibility:hidden;</code> will be detected in the font size test.</p>
                 <p>• Text with <code>display:none;</code> will be detected in the font size test.</p>
                 <p>• Would be nice if Google would open source this project so we can contribute to it since its very important specially for the fact given that the number of smartphone users will arise in the upcoming years.</p>
+                </span>
               </div>
             </section>
           </article>
