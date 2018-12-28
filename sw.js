@@ -8,7 +8,6 @@ self.addEventListener('install', e => {
         '/index.html',
         '/about.html',
         '/projects.html',
-        '/assets/css/main.css',
         '/assets/js/main.js',
         '/images/blog/mobile-friendly/bad-font-size.png',
         '/assets/js/jquery.min.js',
