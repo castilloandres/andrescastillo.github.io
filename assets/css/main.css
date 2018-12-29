@@ -1886,9 +1886,9 @@
 			text-transform: none !important;
 		}
 
-		.icon > .label {
+		/*.icon > .label {
 			display: none;
-		}
+		}*/
 
 		.icon.major {
 			-moz-transform: rotate(-45deg);
