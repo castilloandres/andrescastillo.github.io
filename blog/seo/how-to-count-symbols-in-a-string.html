@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64326807-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-64326807-3');
+    </script>
+    <title>How to count JavaScript symbols in a string</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="How font size works in Google's Mobile Friendly Test tool. What font size should my page have on mobile devices? Does google take into account when analyzing on-page invisible text? opacity? display and visibility CSS properties?">
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="shortcut icon" href="../../images/andres-castillo-think-outside-box.png" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <script type='application/ld+json'>
+    {
+       "@context":"https://schema.org",
+       "@type":"BreadcrumbList",
+       "itemListElement":[
+          {
+             "@type":"ListItem",
+             "position":1,
+             "item":{
+                "@id":"https://www.castilloandres.com/",
+                "name":"Home"
+             }
+          },
+          {
+             "@type":"ListItem",
+             "position":2,
+             "item":{
+                "@id":"https://www.castilloandres.com/blog/seo/how-to-count-symbols-in-a-string.html",
+                "name":"How to count symbols in a string"
+             }
+          }
+       ]
+    }
+    </script>
+    <script type="application/ld+json">
+    { "@context": "http://schema.org",
+     "@type": "BlogPosting",
+     "headline": "How to count symbols in a string",
+     "image": "",
+     "genre": "JavaScript",
+     "wordcount": "",
+     "url": "",
+     "publisher":
+      {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Andres Castillo"
+     },
+     "datePublished": "2018-12-05",
+     "dateCreated": "2018-12-05",
+     "dateModified": "2018-12-24",
+     "mainEntityOfPage": {
+       "@type": "Blog",
+       "@id": "https://www.castilloandres.com/"
+      },
+     "description": ""
+    ,
+     "author": {
+        "@type": "Person",
+        "name": "Andres Castillo",
+        "additionalName" : "Andres Castillo Ormaechea"
+      },
+      "editor": {
+        "@type": "Person",
+        "name": "Andres Castillo",
+        "additionalName" : "Andres Castillo Ormaechea"
+      }
+     }
+  </script>
+  </head>
+  <body>
+
+    <!-- Page Wrapper -->
+      <div id="page-wrapper">
+
+        <!-- Menu -->
+          <nav id="nav">
+              <ul>
+                <li><a href="../../index.html">Blog</a></li>
+                <li><a href="../../projects.html">Projects</a></li>
+                <li><a href="../../about.html">About</a></li>
+                <!-- <li><a href="../../contact.html">Contact</a></li> -->
+              </ul>
+          </nav>
+        <!-- Main -->
+          <article id="main">
+            <header style="background-image:url('../../images/blog/mobile-friendly/bad-font-size-background.png')">
+              <h1>How to count symbols in a string in JavaScript</h1>
+              <h2></h2>
+              <p>10/12/2018</p>
+              <h6>By: Andres Castillo Ormaechea</h6>
+            </header>
+            <section class="wrapper style5">
+              <div class="inner">
+                <p>The first thing we tend to think when we need to count the number of symbols in a string is the following:</p>
+<pre><code>> 'A'.length
+1
+> '1234'.length
+4
+> 'symbols'.length
+7
+</code></pre>
+                <p>Nevertheless using  <strong>.length</strong> fails on the following examples:</p>
+<pre><code>> '𝐀'.length
+2
+> '💩'.length
+2
+> '再'.length
+2
+</code></pre>
+                <p>This is because using <strong>.length</strong> counts unicode code points and not symbols. If we want to count symbols as far as readable text goes for most international character sets more or less the approach would be something like:</p>
+<pre><code>> Array.from('𝐀').length
+1
+> Array.from('💩').length
+1
+> Array.from('再').length
+1
+</code></pre>
+                <h2>Let's go over the terms first</h2>
+                <ul>
+                  <li><strong>Code unit:</strong> its the unit of storage of code points. In UTF-8 this means 8-bits, in UTF-16 is 16-bits.</li>
+                  <li><strong>Code point:</strong> is a number that represents a symbol or part of a symbol by the Unicode standard. A text/string is a sequence of unicode code points.</li>
+                  <li><strong>Symbol:</strong> is a single graphical unit that can represent a grapheme or part of a grapheme.</li>
+                  <li><strong>Grapheme:</strong> is a single graphical unit that the reader recognizes visually as a single element of the written system.</li>
+                </ul>
+
+                <h3>So to summarize it in another way:</h3>
+                <ul>
+                  <li>Strings can be composed of multiple graphemes.</li>
+                  <li>Graphemes can be composed of multiple symbols.</li>
+                  <li>Symbols can be composed of multiple code points.</li>
+                  <li>Code points can be composed of multiple code units/bytes.</li>
+                </ul>
+                
+              </div>
+            </section>
+          </article>
+        <!-- Footer -->
+          <footer id="footer">
+            <ul class="icons">
+              <li><a href="https://es.linkedin.com/in/andrescastillo1" class="icon fa-linkedin">.</a></li>
+              <li><a href="https://github.com/castilloandres" class="icon fa-github">.</a></li>
+              <li><a href="https://instagram.com/andrescastillo.es" class="icon fa-instagram">.</a></li>
+              <li><a href="mailto:castilloandres17@gmail.com" class="icon fa-envelope-o">.</a></li>
+              <li><a href="https://twitter.com/ndrscastillo" class="icon fa-twitter">.</a></li>
+            </ul>
+            <ul class="copyright">
+              <li>&copy; Andres Castillo Ormaechea</li>
+            </ul>
+          </footer>
+
+      </div>
+
+    <!-- Scripts -->
+      <script src="../../assets/js/jquery.min.js"></script>
+      <script src="../../assets/js/jquery.scrollex.min.js"></script>
+      <script src="../../assets/js/jquery.scrolly.min.js"></script>
+      <script src="../../assets/js/skel.min.js"></script>
+      <script src="../../assets/js/util.js"></script>
+      <!--[if lte IE 8]><script src="../../assets/js/ie/respond.min.js"></script><![endif]-->
+      <script src="../../assets/js/main.js"></script>
+
+  </body>
+</html>
