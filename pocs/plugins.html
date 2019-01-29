@@ -1,0 +1,27 @@
+<!doctype html>
+    <html>
+      <head>
+        <title></title>
+      </head>
+      <body>
+        <h1>Has plugin</h1>
+        <!-- embed -->
+        <embed src="/static/helloworld.swf" width="200" height="200">
+          <!-- object -->
+        <object width="400" height="400" data="helloworld.swf"></object>
+        <!-- applet -->
+        <applet code="Bubbles.class" width="350" height="350"></applet>
+        <!-- applet -->
+        <applet width="350" height="350"></applet>
+        <!-- object with child node param source-->
+        <object data="no source in here but inside the child param">
+          <param name="src" value="/static/horse.flv">
+        </object>
+      </body>
+      <!-- object with child nodes param source-->
+        <object data="no source in here but inside the child param">
+          <param name="src" value="/static/horse.flv">
+          <param name="src" value="/static/horse.flv">
+        </object>
+      </body>
+    </html>
