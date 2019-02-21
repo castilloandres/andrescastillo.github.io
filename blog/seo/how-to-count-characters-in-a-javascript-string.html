@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64326807-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-64326807-3');
+    </script>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="How font size works in Google's Mobile Friendly Test tool. What font size should my page have on mobile devices? Does google take into account when analyzing on-page invisible text? opacity? display and visibility CSS properties?">
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="shortcut icon" href="../../images/andres-castillo-think-outside-box.png" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <script type='application/ld+json'>
+    {
+       "@context":"https://schema.org",
+       "@type":"BreadcrumbList",
+       "itemListElement":[
+          {
+             "@type":"ListItem",
+             "position":1,
+             "item":{
+                "@id":"https://www.castilloandres.com/",
+                "name":"Home"
+             }
+          },
+          {
+             "@type":"ListItem",
+             "position":2,
+             "item":{
+                "@id":"https://www.castilloandres.com/blog/seo/google-mobile-friendly-test-font-size.html",
+                "name":"Google Mobile Friendly Tool: font size"
+             }
+          }
+       ]
+    }
+    </script>
+    <script type="application/ld+json">
+    { "@context": "http://schema.org",
+     "@type": "BlogPosting",
+     "headline": "How font size works in Google's Mobile-Friendly Test tool",
+     "image": "https://www.castilloandres.com/images/blog/mobile-friendly/good-font-size.png",
+     "genre": "SEO",
+     "wordcount": "759",
+     "url": "https://www.castilloandres.com/blog/seo/google-mobile-friendly-test-font-size.html",
+     "publisher":
+      {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Andres Castillo"
+     },
+     "datePublished": "2018-12-05",
+     "dateCreated": "2018-12-05",
+     "dateModified": "2018-12-24",
+     "mainEntityOfPage": {
+       "@type": "Blog",
+       "@id": "https://www.castilloandres.com/"
+      },
+     "description": ""
+    ,
+     "author": {
+        "@type": "Person",
+        "name": "Andres Castillo",
+        "additionalName" : "Andres Castillo Ormaechea"
+      },
+      "editor": {
+        "@type": "Person",
+        "name": "Andres Castillo",
+        "additionalName" : "Andres Castillo Ormaechea"
+      }
+     }
+  </script>
+  </head>
+  <body>
+
+    <!-- Page Wrapper -->
+      <div id="page-wrapper">
+
+        <!-- Menu -->
+          <nav id="nav">
+              <ul>
+                <li><a href="../../index.html">Blog</a></li>
+                <li><a href="../../projects.html">Projects</a></li>
+                <li><a href="../../about.html">About</a></li>
+                <!-- <li><a href="../../contact.html">Contact</a></li> -->
+              </ul>
+          </nav>
+        <!-- Main -->
+          <article id="main">
+            <header style="background-image:url('../../images/blog/mobile-friendly/bad-font-size-background.png')">
+              <h1>How to count characters in a JavaScript string</h1>
+              <p>21/02/2019</p>
+              <h6>By: Andres Castillo Ormaechea</h6>
+            </header>
+            <section class="wrapper style5">
+              <div class="inner">
+                <p>When we want to count characters in a JavaScript string we can use <code>.length</code> property as follows:</p>
+                <pre><code>>'abc'.length
+3
+>'four'.length
+4
+>'hello'.length
+5</code></pre>
+<p>And voilá everything seems great no? We can output the number of characters our string has. Nevertheless not 100% true.</p>
+
+                <h3>The problem.</h3>
+                <p>We are counting code points and not characters. Let's illustrate it in an example:</p>
+                <pre><code>>'💩'.length
+2
+> '𝐀'.length
+2
+> '再'.length
+2
+>'👩‍❤️‍💋‍👩'.length
+11</code></pre>
+                <p>We are counting code points. There are some use cases where characters are composed of two ore more code points like: emojis, bold characters, and some foreign character sets.</p>
+                <h3>What are code points?</h3>
+                <p>To be on the same page let's get a few concepts before we dive into code points:</p>
+                <ul>
+                  <li><strong>Graphemes</strong> can be composed multiple <strong>symbols</strong> that are a single unit in human readable text for example the grapheme 👩‍❤️‍💋‍👩 is composed of four (4) symbols which are 👩 + ❤ + 💋 + 👩.</li>
+                  <li><strong>Symbols</strong> are the single unit of information that humans can understand in readable text. Symbols can be composed of one or multiple code points. For example the symbol pile of poop 💩 is composed of two (2) symbols which are <strong>\uD83D</strong> + <strong>\uDCA9</strong>. Or the symbol <strong>再</strong> is composed of two (2) code points <strong>\uD87E</strong> + <strong>\uDC15</strong>. As a last example the bold capital letter <strong>𝐀</strong> is composed by two code points <strong>\uD835</strong> + <strong>\uDC00</strong></li>
+                    <li>Summary:<ul>
+                                  <li>'💩' === <strong>\uD83D</strong> + <strong>\uDCA9</strong></li>
+                                  <li>'再' === <strong>\uD87E</strong> + <strong>\uDC15</strong></li>
+                                  <li>'𝐀' === <strong>\uD835</strong> + <strong>\uDC00</strong></li>
+                                </ul>
+                    </li>
+                <li>Code points are the single unit of information that computers understand. A code point represents a single value in the unicode standard.</li>
+                </ul>
+                <p>Remember <code>'👩‍❤️‍💋‍👩'.length === 11</code>? Let's make a diagram that deconstructs the 👩‍❤️‍💋‍👩 grapheme into symbols and code points:</p>
+                <pre><code>
+👩 (Symbol)
+  1. \uD83D (code point)
+  2. \uDC69 (code point)
+--------------------------
+emoji zero width joiner
+  3. \u200d (code point)
+--------------------------
+❤ (Symbol)
+  4. \u2764 (code point)
+--------------------------
+emoji presentation selector
+  5. \ufe0f (code point)
+--------------------------
+emoji zero width joiner
+  6. \u200d (code point)
+--------------------------
+ 💋 (Symbol)
+  7. \ud83d
+  8. \udc8b
+--------------------------
+emoji zero width joiner
+  9. \u200d (code point)
+--------------------------
+👩
+  10. \uD83D (code point)
+  11. \uDC69 (code point)
+                </code></pre>
+                <h3>Solutions</h3>
+                <p>The first easy and straightforward approach is to use <code>Array.from</code> that will split symbols</p>
+              </div>
+            </section>
+          </article>
+        <!-- Footer -->
+          <footer id="footer">
+            <ul class="icons">
+              <li><a href="https://es.linkedin.com/in/andrescastillo1" class="icon fa-linkedin">.</a></li>
+              <li><a href="https://github.com/castilloandres" class="icon fa-github">.</a></li>
+              <li><a href="https://instagram.com/andrescastillo.es" class="icon fa-instagram">.</a></li>
+              <li><a href="mailto:castilloandres17@gmail.com" class="icon fa-envelope-o">.</a></li>
+              <li><a href="https://twitter.com/ndrscastillo" class="icon fa-twitter">.</a></li>
+            </ul>
+            <ul class="copyright">
+              <li>&copy; Andres Castillo Ormaechea</li>
+            </ul>
+          </footer>
+
+      </div>
+
+    <!-- Scripts -->
+      <script src="../../assets/js/jquery.min.js"></script>
+      <script src="../../assets/js/jquery.scrollex.min.js"></script>
+      <script src="../../assets/js/jquery.scrolly.min.js"></script>
+      <script src="../../assets/js/skel.min.js"></script>
+      <script src="../../assets/js/util.js"></script>
+      <!--[if lte IE 8]><script src="../../assets/js/ie/respond.min.js"></script><![endif]-->
+      <script src="../../assets/js/main.js"></script>
+
+  </body>
+</html>
