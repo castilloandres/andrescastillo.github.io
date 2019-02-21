@@ -14,7 +14,7 @@
     <title></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="How font size works in Google's Mobile Friendly Test tool. What font size should my page have on mobile devices? Does google take into account when analyzing on-page invisible text? opacity? display and visibility CSS properties?">
+    <meta name="description" content="How to count characters in a JavaScript string">
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="shortcut icon" href="../../images/andres-castillo-think-outside-box.png" />
     <link rel="stylesheet" href="../../assets/css/main.css" />
@@ -47,25 +47,25 @@
     <script type="application/ld+json">
     { "@context": "http://schema.org",
      "@type": "BlogPosting",
-     "headline": "How font size works in Google's Mobile-Friendly Test tool",
-     "image": "https://www.castilloandres.com/images/blog/mobile-friendly/good-font-size.png",
-     "genre": "SEO",
-     "wordcount": "759",
-     "url": "https://www.castilloandres.com/blog/seo/google-mobile-friendly-test-font-size.html",
+     "headline": "How to count characters in a JavaScript string",
+     "image": "https://www.castilloandres.com/images/blog/count-chars-js/count-chars-js-small.png",
+     "genre": "JavaScript",
+     "wordcount": "489",
+     "url": "https://www.castilloandres.com/blog/seo/how-to-count-characters-in-a-javascript-string.html.html",
      "publisher":
       {
         "@context": "http://schema.org",
         "@type": "Person",
         "name": "Andres Castillo"
      },
-     "datePublished": "2018-12-05",
-     "dateCreated": "2018-12-05",
-     "dateModified": "2018-12-24",
+     "datePublished": "2019-02-21",
+     "dateCreated": "2019-02-21",
+     "dateModified": "2019-02-21",
      "mainEntityOfPage": {
        "@type": "Blog",
        "@id": "https://www.castilloandres.com/"
       },
-     "description": ""
+     "description": "When we want to count characters in a JavaScript string we can use .length property as follows: >'abc'.length 3 >'four'.length 4 >'hello'.length 5 And voilá everything seems great no? We can output the number of characters our string has. Nevertheless not 100% true. What is the problem. We are counting code points and not characters. Let's illustrate it in an example: >'💩'.length 2 > '𝐀'.length 2 > '再'.length 2 >'👩‍❤️‍💋‍👩'.length 11 We are counting code points. There are some use cases where characters are composed of two ore more code points like: emojis, bold characters, and some foreign character sets. What are code points? To be on the same page let's get a few concepts before we dive into code points: Graphemes can be composed by multiple symbols. For example the grapheme 👩‍❤️‍💋‍👩 is composed of four (4) symbols which are 👩 + ❤ + 💋 + 👩. Symbols are the single unit of information that humans can understand in readable text. Symbols can be composed of one or multiple code points. For example the symbol pile of poop 💩 is composed of two (2) symbols which are \uD83D + \uDCA9. Or the symbol 再 is composed of two (2) code points \uD87E + \uDC15. As a last example the bold capital letter 𝐀 is composed by two code points \uD835 + \uDC00 '💩' === \uD83D + \uDCA9 '再' === \uD87E + \uDC15 '𝐀' === \uD835 + \uDC00 Code points are the single unit of information that computers understand. A code point represents a single value in the unicode standard. For example computers understand \uD835 + \uDC00 which is equal to what we humans understand as 𝐀. How can we fix this? The first easy and straightforward approach is to use Array.from that will split symbols in to an array and then count the length of that array. > Array.from('𝐀').length 1 > Array.from('💩').length 1 > Array.from('再').length 1 This approach will cover most of the readable text use cases (not emojis) and most foreign character sets. For going further down the rabbit hole for counting emoji sequences, diacritics and 0 width characters there are some npm libraries that can help with that. Why is this important Knowing how computers and humans understand a single unit of information and how we are able to go back and forth between these two worlds is important to dive into more complex problems."
     ,
      "author": {
         "@type": "Person",
@@ -96,7 +96,7 @@
           </nav>
         <!-- Main -->
           <article id="main">
-            <header style="background-image:url('../../images/blog/mobile-friendly/bad-font-size-background.png')">
+            <header style="background-image:url('../../images/blog/count-chars-js/count-chars-js-big.png')">
               <h1>How to count characters in a JavaScript string</h1>
               <p>21/02/2019</p>
               <h6>By: Andres Castillo Ormaechea</h6>
@@ -112,7 +112,7 @@
 5</code></pre>
 <p>And voilá everything seems great no? We can output the number of characters our string has. Nevertheless not 100% true.</p>
 
-                <h3>The problem.</h3>
+                <h3>What is the problem.</h3>
                 <p>We are counting code points and not characters. Let's illustrate it in an example:</p>
                 <pre><code>>'💩'.length
 2
@@ -125,48 +125,56 @@
                 <p>We are counting code points. There are some use cases where characters are composed of two ore more code points like: emojis, bold characters, and some foreign character sets.</p>
                 <h3>What are code points?</h3>
                 <p>To be on the same page let's get a few concepts before we dive into code points:</p>
-                <ul>
-                  <li><strong>Graphemes</strong> can be composed multiple <strong>symbols</strong> that are a single unit in human readable text for example the grapheme 👩‍❤️‍💋‍👩 is composed of four (4) symbols which are 👩 + ❤ + 💋 + 👩.</li>
-                  <li><strong>Symbols</strong> are the single unit of information that humans can understand in readable text. Symbols can be composed of one or multiple code points. For example the symbol pile of poop 💩 is composed of two (2) symbols which are <strong>\uD83D</strong> + <strong>\uDCA9</strong>. Or the symbol <strong>再</strong> is composed of two (2) code points <strong>\uD87E</strong> + <strong>\uDC15</strong>. As a last example the bold capital letter <strong>𝐀</strong> is composed by two code points <strong>\uD835</strong> + <strong>\uDC00</strong></li>
-                    <li>Summary:<ul>
-                                  <li>'💩' === <strong>\uD83D</strong> + <strong>\uDCA9</strong></li>
-                                  <li>'再' === <strong>\uD87E</strong> + <strong>\uDC15</strong></li>
-                                  <li>'𝐀' === <strong>\uD835</strong> + <strong>\uDC00</strong></li>
-                                </ul>
-                    </li>
-                <li>Code points are the single unit of information that computers understand. A code point represents a single value in the unicode standard.</li>
+                <p><strong>Graphemes</strong> can be composed by multiple <strong>symbols</strong>. For example the grapheme 👩‍❤️‍💋‍👩 is composed of four (4) symbols which are 👩 + ❤ + 💋 + 👩.</p>
+                <p><strong>Symbols</strong> are the single unit of information that humans can understand in readable text. Symbols can be composed of one or multiple code points. For example the symbol pile of poop 💩 is composed of two (2) symbols which are <code>\uD83D</code> + <code>\uDCA9</code>. Or the symbol <strong>再</strong> is composed of two (2) code points <code>\uD87E</code> + <code>\uDC15</code>. As a last example the bold capital letter <strong>𝐀</strong> is composed by two code points <code>\uD835</code> + <code>\uDC00</code></p>
+               <ul>
+                  <li>'💩' === <strong>\uD83D</strong> + <strong>\uDCA9</strong></li>
+                  <li>'再' === <strong>\uD87E</strong> + <strong>\uDC15</strong></li>
+                  <li>'𝐀' === <strong>\uD835</strong> + <strong>\uDC00</strong></li>
                 </ul>
+                <p><strong>Code points</strong> are the single unit of information that computers understand. A code point represents a single value in the unicode standard. For example computers understand <code>\uD835</code> + <code>\uDC00</code> which is equal to what we humans understand as <strong>𝐀</strong>.</p>
                 <p>Remember <code>'👩‍❤️‍💋‍👩'.length === 11</code>? Let's make a diagram that deconstructs the 👩‍❤️‍💋‍👩 grapheme into symbols and code points:</p>
                 <pre><code>
 👩 (Symbol)
   1. \uD83D (code point)
   2. \uDC69 (code point)
 --------------------------
-emoji zero width joiner
+emoji zero width joiner (not visually represented to humans)
   3. \u200d (code point)
 --------------------------
 ❤ (Symbol)
   4. \u2764 (code point)
 --------------------------
-emoji presentation selector
+emoji presentation selector (not visually represented to humans)
   5. \ufe0f (code point)
 --------------------------
-emoji zero width joiner
+emoji zero width joiner (not visually represented to humans)
   6. \u200d (code point)
 --------------------------
  💋 (Symbol)
-  7. \ud83d
-  8. \udc8b
+  7. \ud83d (code point)
+  8. \udc8b (code point)
 --------------------------
-emoji zero width joiner
+emoji zero width joiner (not visually represented to humans)
   9. \u200d (code point)
 --------------------------
-👩
+👩 (Symbol)
   10. \uD83D (code point)
   11. \uDC69 (code point)
                 </code></pre>
-                <h3>Solutions</h3>
-                <p>The first easy and straightforward approach is to use <code>Array.from</code> that will split symbols</p>
+                <h3>How can we fix this?</h3>
+                <p>The first easy and straightforward approach is to use <code>Array.from</code> that will split symbols in to an array and then count the <code>length</code> of that array.</p>
+                <pre><code>> Array.from('𝐀').length
+1
+> Array.from('💩').length
+1
+> Array.from('再').length
+1
+</code></pre>
+                <p>This approach will cover most of the readable text use cases (not emojis) and most foreign character sets.</p>
+                <p>For going further down the rabbit hole for counting emoji sequences, diacritics and 0 width characters there are some npm libraries that can help with that.</p>
+                <h3>Why is this important</h3>
+                <p>Knowing how computers and humans understand a single unit of information and how we are able to go back and forth between these two worlds is important to dive into more complex problems.</p>
               </div>
             </section>
           </article>
