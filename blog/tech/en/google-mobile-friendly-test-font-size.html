@@ -16,8 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="How font size works in Google's Mobile Friendly Test tool. What font size should my page have on mobile devices? Does google take into account when analyzing on-page invisible text? opacity? display and visibility CSS properties?">
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="shortcut icon" href="../../images/andres-castillo-think-outside-box.png" />
-    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <link rel="shortcut icon" href="../../../images/andres-castillo-think-outside-box.png" />
+    <link rel="stylesheet" href="../../../assets/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     <script type='application/ld+json'>
@@ -155,15 +155,15 @@
         <!-- Menu -->
           <nav id="nav">
               <ul>
-                <li><a href="../../index.html">Blog</a></li>
-                <li><a href="../../projects.html">Projects</a></li>
-                <li><a href="../../about.html">About</a></li>
+                <li><a href="../../../index.html">Blog</a></li>
+                <li><a href="../../../projects.html">Projects</a></li>
+                <li><a href="../../../about.html">About</a></li>
                 <!-- <li><a href="../../contact.html">Contact</a></li> -->
               </ul>
           </nav>
         <!-- Main -->
           <article id="main">
-            <header style="background-image:url('../../images/blog/mobile-friendly/bad-font-size-background.png')">
+            <header style="background-image:url('../../../images/blog/mobile-friendly/bad-font-size-background.png')">
               <h1>Google's Mobile-Friendly Test tool: font size</h1>
               <h2>7 experiments by reverse engineering font size detection</h2>
               <p>10/12/2018</p>
@@ -177,25 +177,25 @@
                 <p>It is very important to make your website readable from a mobile device since it is predicted that there will be 2.7 billion smartphone users in 2019:</p>
 
                 <div class="6u 12u$(medium)">
-                  <a href="../../images/blog/mobile-friendly/smartphone-users.png" class="image fit"><img src="../../images/blog/mobile-friendly/smartphone-users.png" alt="smartphone users growth" title="See smartphone users growth"></a>
+                  <a href="../../../images/blog/mobile-friendly/smartphone-users.png" class="image fit"><img src="../../../images/blog/mobile-friendly/smartphone-users.png" alt="smartphone users growth" title="See smartphone users growth"></a>
                   <p class="source">• Source: https://www.statista.com/statistics/330695/number-of-smartphone-users-worldwide/</p>
                 </div>
 
                 <p>It is recommended by Google that the font size of your site on a mobile device should be at least 12 pixels:</p>
 
                 <div class="6u 12u$(medium)">
-                  <a href="../../images/blog/mobile-friendly/lighthouse-docs.png" class="image fit"><img src="../../images/blog/mobile-friendly/lighthouse-docs.png" alt="Google Lighthouse docs font size" title="See Google Lighthouse docs"></a>
+                  <a href="../../../images/blog/mobile-friendly/lighthouse-docs.png" class="image fit"><img src="../../../images/blog/mobile-friendly/lighthouse-docs.png" alt="Google Lighthouse docs font size" title="See Google Lighthouse docs"></a>
                 </div>
                 <p class="source">• Source: https://developers.google.com/web/tools/lighthouse/audits/font-sizes/</p>
                 <div class="6u 12u$(medium)">
-                  <a href="../../images/blog/mobile-friendly/google-docs.png" class="image fit"><img src="../../images/blog/mobile-friendly/google-docs.png" alt="Google docs font size" title="See Google docs font size"></a>
+                  <a href="../../../images/blog/mobile-friendly/google-docs.png" class="image fit"><img src="../../../images/blog/mobile-friendly/google-docs.png" alt="Google docs font size" title="See Google docs font size"></a>
                 </div>
                 <p class="source">• Source: https://www.thinkwithgoogle.com/intl/en-gb/consumer-insights/build-a-great-user-experience/</p>
 
                 <p>You can test this first in a tool called "Lighthouse" that is a tool for improving the quality of a website. There is a particular section in Lighthouse that refers to the "Mobile Friendly Test" that is also a tool by Google to check the quality of your website but instead in mobile devices.</p>
 
                 <div class="6u 12u$(medium)">
-                  <a href="../../images/blog/mobile-friendly/lighthouse.png" class="image fit"><img src="../../images/blog/mobile-friendly/lighthouse.png" alt="Google Lighthouse mobile friendly" title="See Google Lighthouse mobile friendly"></a>
+                  <a href="../../../images/blog/mobile-friendly/lighthouse.png" class="image fit"><img src="../../../images/blog/mobile-friendly/lighthouse.png" alt="Google Lighthouse mobile friendly" title="See Google Lighthouse mobile friendly"></a>
                 </div>
 
                 <p>The interesting thing here is that the "Mobile Friendly Test" tool is NOT open sourced. So I decided to do some experiments regarding font size detection in mobile devices.</p>
@@ -205,7 +205,7 @@
                 <p>I set a base text (1059 characters) in a plain HTML file and started changing the font size and running it against the Mobile-Friendly tool. Turns out that the minimum required font size so that the page passes the test is when setting it to >= 21px.</p>
 
                 <div class="6u 12u$(medium)">
-                  <a href="../../images/blog/mobile-friendly/good-font-size.png" class="image fit"><img src="../../images/blog/mobile-friendly/good-font-size.png" alt="Google Mobile Friendly test - mobile friendly page" title="See Google Mobile Friendly test - mobile friendly page"></a>
+                  <a href="../../../images/blog/mobile-friendly/good-font-size.png" class="image fit"><img src="../../../images/blog/mobile-friendly/good-font-size.png" alt="Google Mobile Friendly test - mobile friendly page" title="See Google Mobile Friendly test - mobile friendly page"></a>
                 </div>
                 <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=REqe8liXkTVa8iMSVd5j4w" target="_blank">https://search.google.com/test/mobile-friendly?id=REqe8liXkTVa8iMSVd5j4w</a></p>
 
@@ -214,7 +214,7 @@
                 <p>Using the same base HTML file (1059 characters) I changed the font size to 20px and turns out that the page fails the font size test:</p>
 
                 <div class="6u 12u$(medium)">
-                  <a href="../../images/blog/mobile-friendly/bad-font-size.png" class="image fit"><img src="../../images/blog/mobile-friendly/bad-font-size.png" alt="Google Mobile Friendly test - not mobile friendly page" title="See Google Mobile Friendly test - not mobile friendly page"></a>
+                  <a href="../../../images/blog/mobile-friendly/bad-font-size.png" class="image fit"><img src="../../../images/blog/mobile-friendly/bad-font-size.png" alt="Google Mobile Friendly test - not mobile friendly page" title="See Google Mobile Friendly test - not mobile friendly page"></a>
                 </div>
                 <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=cFclgsqXxy--ZyQzxUvmMg" target="_blank">https://search.google.com/test/mobile-friendly?id=cFclgsqXxy--ZyQzxUvmMg</a></p>
 
@@ -223,7 +223,7 @@
                 <p>Using the same base HTML file (1059 characters at 20 px) I added a viewport meta tag and it happens so that the page passes the font size test. So, again, remember the importance of the mobile viewport tag. The things it can do for such little effort:</p>
 
                 <div class="6u 12u$(medium)">
-                  <a href="../../images/blog/mobile-friendly/adding-viewport.png" class="image fit"><img src="../../images/blog/mobile-friendly/bad-font-size-with-viewport.png" alt="Google Mobile Friendly test - mobile friendly page" title="See Google Mobile Friendly test - mobile friendly page"></a>
+                  <a href="../../../images/blog/mobile-friendly/adding-viewport.png" class="image fit"><img src="../../../images/blog/mobile-friendly/bad-font-size-with-viewport.png" alt="Google Mobile Friendly test - mobile friendly page" title="See Google Mobile Friendly test - mobile friendly page"></a>
                 </div>
                 <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=q2GC-pEA57f4RQZvWluwUg" target="_blank">https://search.google.com/test/mobile-friendly?id=q2GC-pEA57f4RQZvWluwUg</a></p>
 
@@ -232,7 +232,7 @@
                 <p>Using a plain HTML file with 1059 characters at 21px (a good font size) I added 5323 characters at 20px (bad font size) with the same color as the background which is roughly 83% of invisible text on the page. The result is that indeed invisible text is considered when analyzing on-page text:</p>
 
                 <div class="6u 12u$(medium)">
-                  <a href="../../images/blog/mobile-friendly/invisible-text.png" class="image fit"><img src="../../images/blog/mobile-friendly/invisible-text.png" alt="Google Mobile Friendly test - not mobile friendly page" title="See Google Mobile Friendly test - not mobile friendly page"></a>
+                  <a href="../../../images/blog/mobile-friendly/invisible-text.png" class="image fit"><img src="../../../images/blog/mobile-friendly/invisible-text.png" alt="Google Mobile Friendly test - not mobile friendly page" title="See Google Mobile Friendly test - not mobile friendly page"></a>
                 </div>
                 <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=CU1EYq60cJIwN7d71rPtVg" target="_blank">https://search.google.com/test/mobile-friendly?id=CU1EYq60cJIwN7d71rPtVg</a></p>
 
@@ -241,7 +241,7 @@
                 <p>I kept the same 1059 characters at 21px (good font size) and added 5323 characters  with <code>opacity:0</code> (83% invisible text) at 20px (bad font size). The result is the same as with Experiment #4. It failed:</p>
 
                 <div class="6u 12u$(medium)">
-                  <a href="../../images/blog/mobile-friendly/opacity-zero.png" class="image fit"><img src="../../images/blog/mobile-friendly/opacity-zero.png" alt="Google Mobile Friendly test - not mobile friendly page" title="See Google Mobile Friendly test - not mobile friendly page"></a>
+                  <a href="../../../images/blog/mobile-friendly/opacity-zero.png" class="image fit"><img src="../../../images/blog/mobile-friendly/opacity-zero.png" alt="Google Mobile Friendly test - not mobile friendly page" title="See Google Mobile Friendly test - not mobile friendly page"></a>
                 </div>
                 <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=oU4FWqss5p9yPQmSgVsKIA" target="_blank">https://search.google.com/test/mobile-friendly?id=oU4FWqss5p9yPQmSgVsKIA</a></p>
 
@@ -250,7 +250,7 @@
                 <p>I kept the same 1059 characters at 21px (good font size) and added 5323 characters with <code>visibility:hidden;</code> (83% invisible text) at 20px (bad font size). The page passes the test so the text with the CSS property <code>visibility:hidden;</code> is NOT considered in the Mobile-Friendly test:</p>
 
                 <div class="6u 12u$(medium)">
-                  <a href="../../images/blog/mobile-friendly/visibility-hidden.png" class="image fit"><img src="../../images/blog/mobile-friendly/visibility-hidden.png" alt="Google Mobile Friendly test - mobile friendly page" title="See Google Mobile Friendly test - mobile friendly page"></a>
+                  <a href="../../../images/blog/mobile-friendly/visibility-hidden.png" class="image fit"><img src="../../../images/blog/mobile-friendly/visibility-hidden.png" alt="Google Mobile Friendly test - mobile friendly page" title="See Google Mobile Friendly test - mobile friendly page"></a>
                 </div>
                 <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=rw6ySrMeBceClojTVetOOA" target="_blank">https://search.google.com/test/mobile-friendly?id=rw6ySrMeBceClojTVetOOA</a></p>
 
@@ -259,7 +259,7 @@
                 <p>With 1059 characters at 21px (good font size) and adding 5323 characters with <code>display:none;</code> (83% invisible text) at 20px (bad font size). The page passes the test so the text with CSS property <code>display:none;</code> is NOT considered in the Mobile-Friendly test:</p>
 
                 <div class="6u 12u$(medium)">
-                  <a href="../../images/blog/mobile-friendly/display-none.png" class="image fit"><img src="../../images/blog/mobile-friendly/display-none.png" alt="Google Mobile Friendly test - mobile friendly page" title="See Google Mobile Friendly test - mobile friendly page"></a>
+                  <a href="../../../images/blog/mobile-friendly/display-none.png" class="image fit"><img src="../../../images/blog/mobile-friendly/display-none.png" alt="Google Mobile Friendly test - mobile friendly page" title="See Google Mobile Friendly test - mobile friendly page"></a>
                 </div>
                 <p class="source">• Source: <a href="https://search.google.com/test/mobile-friendly?id=jyYcBViQ6HLVydDMtXn70g" target="_blank">https://search.google.com/test/mobile-friendly?id=jyYcBViQ6HLVydDMtXn70g</a></p>
 
@@ -295,13 +295,13 @@
       </div>
 
     <!-- Scripts -->
-      <script src="../../assets/js/jquery.min.js"></script>
-      <script src="../../assets/js/jquery.scrollex.min.js"></script>
-      <script src="../../assets/js/jquery.scrolly.min.js"></script>
-      <script src="../../assets/js/skel.min.js"></script>
-      <script src="../../assets/js/util.js"></script>
-      <!--[if lte IE 8]><script src="../../assets/js/ie/respond.min.js"></script><![endif]-->
-      <script src="../../assets/js/main.js"></script>
+      <script src="../../../assets/js/jquery.min.js"></script>
+      <script src="../../../assets/js/jquery.scrollex.min.js"></script>
+      <script src="../../../assets/js/jquery.scrolly.min.js"></script>
+      <script src="../../../assets/js/skel.min.js"></script>
+      <script src="../../../assets/js/util.js"></script>
+      <!--[if lte IE 8]><script src="../../../assets/js/ie/respond.min.js"></script><![endif]-->
+      <script src="../../../assets/js/main.js"></script>
 
   </body>
 </html>
