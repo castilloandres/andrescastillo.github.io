@@ -125,7 +125,7 @@
                 <p>We are counting code points. There are some use cases where characters are composed of two ore more code points like: emojis, bold characters, and some foreign character sets.</p>
                 <h3>What are code points?</h3>
                 <p>To be on the same page let's get a few concepts before we dive into code points:</p>
-                <p><strong>Graphemes</strong> can be composed by multiple <strong>symbols</strong>. For example the grapheme 👩‍❤️‍💋‍👩 is composed of four (4) symbols which are 👩 + ❤ + 💋 + 👩.</p>
+                <p><strong>Graphemes</strong> can be composed by multiple <strong>symbols</strong>. For example the grapheme 👩‍❤️‍💋‍👩 is composed of four (4) symbols which are 👩 +  ❤ + 💋 + 👩.</p>
                 <p><strong>Symbols</strong> are the single unit of information that humans can understand in readable text. Symbols can be composed of one or multiple code points. For example the symbol pile of poop 💩 is composed of two (2) symbols which are <code>\uD83D</code> + <code>\uDCA9</code>. Or the symbol <strong>再</strong> is composed of two (2) code points <code>\uD87E</code> + <code>\uDC15</code>. As a last example the bold capital letter <strong>𝐀</strong> is composed by two code points <code>\uD835</code> + <code>\uDC00</code></p>
                <ul>
                   <li>'💩' === <strong>\uD83D</strong> + <strong>\uDCA9</strong></li>
@@ -135,32 +135,72 @@
                 <p><strong>Code points</strong> are the single unit of information that computers understand. A code point represents a single value in the unicode standard. For example computers understand <code>\uD835</code> + <code>\uDC00</code> which is equal to what we humans understand as <strong>𝐀</strong>.</p>
                 <p>Remember <code>'👩‍❤️‍💋‍👩'.length === 11</code>? Let's make a diagram that deconstructs the 👩‍❤️‍💋‍👩 grapheme into symbols and code points:</p>
                 <pre><code>
-👩 (Symbol)
-  1. \uD83D (code point)
-  2. \uDC69 (code point)
---------------------------
-emoji zero width joiner (not visually represented to humans)
-  3. \u200d (code point)
---------------------------
-❤ (Symbol)
-  4. \u2764 (code point)
---------------------------
-emoji presentation selector (not visually represented to humans)
-  5. \ufe0f (code point)
---------------------------
-emoji zero width joiner (not visually represented to humans)
-  6. \u200d (code point)
---------------------------
- 💋 (Symbol)
-  7. \ud83d (code point)
-  8. \udc8b (code point)
---------------------------
-emoji zero width joiner (not visually represented to humans)
-  9. \u200d (code point)
---------------------------
-👩 (Symbol)
-  10. \uD83D (code point)
-  11. \uDC69 (code point)
+        What humans see             | What computers see
+------------------------------------------------------------------------------
+Graphemes       |Symbols            |  Code points
+------------------------------------------------------------------------------
+ 👩‍❤️‍💋‍👩             | 👩                |  1. \uD83D
+                |                   |  2. \uDC69
+                |                   |
+------------------------------------------------------------------------------
+                |                   |  3. \u200d (emoji_zero_width_joiner) 
+                |                   |   
+                |                   |
+------------------------------------------------------------------------------
+                | ❤                 |  4. \u2764
+                |                   |
+                |                   |
+------------------------------------------------------------------------------
+                |                   |  5. \ufe0f (emoji_presentation_selector) 
+                |                   |   
+                |                   |
+------------------------------------------------------------------------------
+                |                   |  6. \u200d (emoji_zero_width_joiner) 
+                |                   |   
+                |                   |
+------------------------------------------------------------------------------
+                | 💋                |  7. \ud83d
+                |                   |  8. \udc8b
+                |                   |
+------------------------------------------------------------------------------
+                |                   |  9. \u200d (emoji_zero_width_joiner) 
+                |                   |   
+                |                   |
+------------------------------------------------------------------------------
+                | 👩‍                |  10. \uD83D
+                |                   |  11. \uDC69
+                |                   |
+------------------------------------------------------------------------------
+                </code></pre>
+                <pre><code>
+        What humans see             | What computers see
+------------------------------------------------------------------------------
+Graphemes       |Symbols            |  Code points
+------------------------------------------------------------------------------
+                | 💩                |  1. \uD83D
+                |                   |  2. \uDCA9
+                |                   |
+------------------------------------------------------------------------------
+                </code></pre>
+                <pre><code>
+        What humans see             | What computers see
+------------------------------------------------------------------------------
+Graphemes       |Symbols            |  Code points
+------------------------------------------------------------------------------
+                | 再                |  1. \uD87E
+                |                   |  2. \uDC15
+                |                   |
+------------------------------------------------------------------------------
+                </code></pre>
+                <pre><code>
+        What humans see             | What computers see
+------------------------------------------------------------------------------
+Graphemes       |Symbols            |  Code points
+------------------------------------------------------------------------------
+                | 𝐀                 |  1. \uD835
+                |                   |  2. \uDC00
+                |                   |
+------------------------------------------------------------------------------
                 </code></pre>
                 <h3>How can we fix this?</h3>
                 <p>The first easy and straightforward approach is to use <code>Array.from</code> that will split symbols in to an array and then count the <code>length</code> of that array.</p>
