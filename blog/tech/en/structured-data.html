@@ -125,6 +125,7 @@
       <li>Microdata</li>
       <li>RDFa</li>
     </ul>
+    <p>The recommended standard is JSON-LD and I personally use this format since it is easier to implement on your website rather than mutating your html. Just throw a piece of JSON-LD inside of a JavaScript tag and your done.</p>
     <p>Below I will list an example for each type:</p>
     <h3>JSON-LD</h3>
     <pre><code>
@@ -181,7 +182,12 @@
       <div class="12u 12u$(medium)">
         <a href="../../../images/blog/structured-data/open-graph.png" class="image fit"><img src="../../../images/blog/structured-data/open-graph.png" alt="Open graph facebook" title="See open graph structure"></a>
       </div>
-      <p>Here we see that when we add the CNN link to share it in our Facebook timeline it picks up some specific information so it can display it in a nice way. As we show it we can see that the properties are the image, url, title and description of the article which is a nice way to digest the information when we are scrolling thru a feed. Let's see now how machines or computers see that:</p>
+      <p>Here we see that when we add the CNN link to share it in our Facebook timeline it picks up some specific information so it can display it in a nice way. As we show it we can see that the properties are the image, url, title and description of the article which is a nice way to digest the information when we are scrolling thru a feed.</p>
+      <p>Another example where we can see Microformats and the Open Graph Protocol is when we share a link in a Whatsapp conversion:</p>
+      <div class="4u 12u$(medium)">
+        <a href="../../../images/blog/structured-data/whatsapp.png" class="image fit"><img src="../../../images/blog/structured-data/whatsapp.png" alt="Open graph whatsapp" title="See open graph structuren whatsapp"></a>
+      </div>
+      <p> Let's see now how machines or computers see this data or information:</p>
       <pre><code>
         &lt;meta property="og:title" content="Andres Castillo's Blog" /&gt;
         &lt;meta property="og:description" content="Andres Castillo Ormaechea's blog is a detailed narrative on technical and non-technical experiments and past experiences focusing on tech travel and sports." /&gt;
