@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Structured data vs. Open Graph">
     <meta property="og:title" content="Why should I care about structured data?" />
-    <meta property="og:description" content="How Schema.org and Microformats work and why should I care." />
+    <meta property="og:description" content="How Schema.org and Open Graph work and why should I care." />
     <meta property="og:site_name" content="Andres Castillo's Blog" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.castilloandres.com/blog/tech/en/structured-data.html" />
@@ -72,7 +72,7 @@
        "@type": "Blog",
        "@id": "https://www.castilloandres.com/"
       },
-     "description": "Why and how does structured data work? 23/02/2019 By: Andres Castillo Ormaechea For now we have two types of structured data which are Schema.org and Microformats. Schema.org Schema.org is intended to help search engines understand, structure and link your data to avoid ambiguity (avoid having two different meanings at the same time). For example if you are talking about "apple" is the fruit or the company? Schema.org helps circumvent that problem for search engines. Another plus of structured data is that search engines can deliver rich results which means results in a fancy display like this: Here you can see how Google picks up Schema structured data the website provided in the three red squares that are: rating/reviews, cooking time and calories. You will get a higher click through rate with this kind of results display. Here is a further list on possible rich results. There are three ways or types to structure your website data in Schema: JSON-LD Microdata RDFa Below I will list an example for each type: JSON-LD script type="application/ld+json" { "@context": "http://schema.org", "@type": "Person", "name": "Andres Castillo", "additionalName" : "Andres Castillo Ormaechea", "birthdate": "1992-08-08", "birthPlace": "Caracas, Venezuela", "jobTitle": "Software Engineer", "image": "https://www.castilloandres.com/images/andres-castillo.jpg", "mainEntityOfPage": "https://www.castilloandres.com/about.html", "knowsLanguage": "Spanish, English, French", "sameAs": [ "https://www.linkedin.com/in/andrescastillo1/", "https://github.com/castilloandres", "https://www.instagram.com/castillodres/", "https://twitter.com/castillodres" ] } /script Microdata div itemscope itemtype="https://schema.org/Person" pMy name is span itemprop="name"Neil/span./p pMy band is called span itemprop="band"Four Parts Water/span./p pI am span itemprop="nationality"British/span./p /div RDFa: Resource Description Framework in Attributes div vocab="http://schema.org/" typeof="Person" a property="image" href="http://manu.sporny.org/images/manu.png" span property="name"Manu Sporny/span/a, span property="jobTitle"Founder/CEO/span div Phone: span property="telephone"(540) 961-4469/span /div div E-mail: a property="email" href="mailto:msporny@digitalbazaar.com"msporny@digitalbazaar.com/a /div div Links: a property="url" href="http://manu.sporny.org/"Manu's homepage/a /div /div Microformats On the other hand we have Microformats that are a way of structuring your data so your content can be represented like rich objects in a social graph. In other words when you share a link it is nicely displayed in the social platform you are sharing it. Let's show that in an example to get a better understanding of it. Here we see that when we add the CNN link to share it in our Facebook timeline it picks up some specific information so it can display it in a nice way. As we show it we can see that the properties are the image, url, title and description of the article which is a nice way to digest the information when we are scrolling thru a feed. Let's see now how machines or computers see that: meta property="og:title" content="Andres Castillo's Blog" / meta property="og:description" content="Andres Castillo Ormaechea's blog is a detailed narrative on technical and non-technical experiments and past experiences focusing on tech travel and sports." / meta property="og:type" content="website" / meta property="og:url" content="https://www.castilloandres.com/" / meta property="og:locale" content="en_US" / meta property="og:image" content="https://www.castilloandres.com/images/banner.jpg" / The code can be placed just below the title tag of the page. There are two types of Microformats which are: Facebook Open Graph Twitter Cards Tools for checking structured data: There are several tools for structured data that can help you check if your content is correctly structured: Google Structured Data Testing Tool Google Rich Results Test WooRank.com Open Graph Check"
+     "description": "Why and how does structured data work? 23/02/2019 By: Andres Castillo Ormaechea For now we have two types of structured data which are Schema.org and Open Graph. Schema.org Schema.org is intended to help search engines understand, structure and link your data to avoid ambiguity (avoid having two different meanings at the same time). For example if you are talking about "apple" is the fruit or the company? Schema.org helps circumvent that problem for search engines. Another plus of structured data is that search engines can deliver rich results which means results in a fancy display like this: Here you can see how Google picks up Schema structured data the website provided in the three red squares that are: rating/reviews, cooking time and calories. You will get a higher click through rate with this kind of results display. Here is a further list on possible rich results. There are three ways or types to structure your website data in Schema: JSON-LD Microdata RDFa Below I will list an example for each type: JSON-LD script type="application/ld+json" { "@context": "http://schema.org", "@type": "Person", "name": "Andres Castillo", "additionalName" : "Andres Castillo Ormaechea", "birthdate": "1992-08-08", "birthPlace": "Caracas, Venezuela", "jobTitle": "Software Engineer", "image": "https://www.castilloandres.com/images/andres-castillo.jpg", "mainEntityOfPage": "https://www.castilloandres.com/about.html", "knowsLanguage": "Spanish, English, French", "sameAs": [ "https://www.linkedin.com/in/andrescastillo1/", "https://github.com/castilloandres", "https://www.instagram.com/castillodres/", "https://twitter.com/castillodres" ] } /script Microdata div itemscope itemtype="https://schema.org/Person" pMy name is span itemprop="name"Neil/span./p pMy band is called span itemprop="band"Four Parts Water/span./p pI am span itemprop="nationality"British/span./p /div RDFa: Resource Description Framework in Attributes div vocab="http://schema.org/" typeof="Person" a property="image" href="http://manu.sporny.org/images/manu.png" span property="name"Manu Sporny/span/a, span property="jobTitle"Founder/CEO/span div Phone: span property="telephone"(540) 961-4469/span /div div E-mail: a property="email" href="mailto:msporny@digitalbazaar.com"msporny@digitalbazaar.com/a /div div Links: a property="url" href="http://manu.sporny.org/"Manu's homepage/a /div /div Open Graph Protocol. On the other hand we have Open Graph that are a way of structuring your data so your content can be represented like rich objects in a social graph. In other words when you share a link it is nicely displayed in the social platform you are sharing it. Let's show that in an example to get a better understanding of it. Here we see that when we add the CNN link to share it in our Facebook timeline it picks up some specific information so it can display it in a nice way. As we show it we can see that the properties are the image, url, title and description of the article which is a nice way to digest the information when we are scrolling thru a feed. Let's see now how machines or computers see that: meta property="og:title" content="Andres Castillo's Blog" / meta property="og:description" content="Andres Castillo Ormaechea's blog is a detailed narrative on technical and non-technical experiments and past experiences focusing on tech travel and sports." / meta property="og:type" content="website" / meta property="og:url" content="https://www.castilloandres.com/" / meta property="og:locale" content="en_US" / meta property="og:image" content="https://www.castilloandres.com/images/banner.jpg" / The code can be placed just below the title tag of the page. The code or meta data can be placed just below the title tag of the page. Open Graph's use can be seen in the following social platforms: Facebook posts. Twitter cards and Whatsapp messages. Tools for checking structured data: There are several tools for structured data that can help you check if your content is correctly structured: Google Structured Data Testing Tool Google Rich Results Test WooRank.com Open Graph Check"
     ,
      "author": {
         "@type": "Person",
@@ -110,7 +110,7 @@
             </header>
             <section class="wrapper style5">
               <div class="inner">
-    <p>For now we have two types of <strong>structured data</strong> which are <strong>Schema.org</strong> and <strong>Microformats</strong>.</p>
+    <p>For now we have two types of <strong>structured data</strong> which are <strong>Schema.org</strong> and <strong>Open Graph Protocol</strong>.</p>
 
     <h3>Schema.org</h3>
     <p>Schema.org is intended to help search engines understand, structure and link your data to avoid ambiguity (avoid having two different meanings at the same time). For example if you are talking about "apple" is the fruit or the company? Schema.org helps circumvent that problem for search engines.</p>
@@ -177,15 +177,15 @@
         &lt;/div&gt;
         </code>
       </pre>
-      <h3>Microformats</h3>
-      <p>On the other hand we have Microformats that are a way of structuring your data so your content can be represented like rich objects in a social graph. In other words when you share a link it is nicely displayed in the social platform you are sharing it. Let's show that in an example to get a better understanding of it.</p>
+      <h3>Open Graph Protocol</h3>
+      <p>On the other hand we have the Open Graph Protocol that are a way of structuring your data so your content can be represented like rich objects in a social graph. In other words when you share a link it is nicely displayed in the social platform you are sharing it. Let's show that in an example to get a better understanding of it.</p>
       <div class="12u 12u$(medium)">
         <a href="../../../images/blog/structured-data/open-graph.png" class="image fit"><img src="../../../images/blog/structured-data/open-graph.png" alt="Open graph facebook" title="See open graph structure"></a>
       </div>
       <p>Here we see that when we add the CNN link to share it in our Facebook timeline it picks up some specific information so it can display it in a nice way. As we show it we can see that the properties are the image, url, title and description of the article which is a nice way to digest the information when we are scrolling thru a feed.</p>
-      <p>Another example where we can see Microformats and the Open Graph Protocol is when we share a link in a Whatsapp conversion:</p>
+      <p>Another example where we can see the Open Graph Protocol is when we share a link in a Whatsapp conversation:</p>
       <div class="4u 12u$(medium)">
-        <a href="../../../images/blog/structured-data/whatsapp.png" class="image fit"><img src="../../../images/blog/structured-data/whatsapp.png" alt="Open graph whatsapp" title="See open graph structuren whatsapp"></a>
+        <a href="../../../images/blog/structured-data/whatsapp.png" class="image fit"><img src="../../../images/blog/structured-data/whatsapp.png" alt="Open graph whatsapp" title="See open graph structure whatsapp"></a>
       </div>
       <p> Let's see now how machines or computers see this data or information:</p>
       <pre><code>
@@ -196,10 +196,11 @@
         &lt;meta property="og:locale" content="en_US" /&gt;
         &lt;meta property="og:image" content="https://www.castilloandres.com/images/banner.jpg" /&gt;
       </code></pre>
-      <p>The code can be placed just below the title tag of the page. There are two types of Microformats which are:</p>
+      <p>The code or meta data can be placed just below the title tag of the page. Open Graph's use can be seen in the following social platforms:</p>
       <ul>
-        <li>Facebook Open Graph</li>
+        <li>Facebook posts</li>
         <li>Twitter Cards</li>
+        <li>Whatsapp messages</li>
       </ul>
       <h3>Tools for checking structured data:</h3>
       <p>There are several tools for structured data that can help you check if your content is correctly structured:</p>
@@ -208,6 +209,8 @@
         <li> <a href="https://search.google.com/test/rich-results">Google Rich Results Test</a></li>
         <li><a href="https://woorank.com/">WooRank.com</a></li>
         <li><a href="https://opengraphcheck.com/">Open Graph Check</a></li>
+        <li><a href="https://cards-dev.twitter.com/validator"></a>Twitter card validator</li>
+        <li><a href="https://developers.facebook.com/tools/debug/">Facebook debugging tool</a></li>
       </ul>
               </div>
             </section>
