@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <ul>
+    <li>NS records: An NS record will specify the servers which are providing DNS services for that domain name.</li>
+    <li>A record: An A record (Address Record) translates the human-readable domain name “example.com” to an IP address..</li>
+    <li>CNAME record:A CNAME (Canonical Name) points one domain or subdomain to another domain name</li>
+    <li>AAAA record: The AAAA record is similar to the A record, but it allows you to point the domain to an Ipv6 address.</li>
+  </ul>
+  <h2>Some handy UNIX commands:</h2>
+  <ul>
+    <li>curl -IL castilloandres.com (-I head show document info only, -L location follow redirects)</li>
+    <li>dig castilloandres.com (Domain Information Groper) to perform DNS lookups and displays the answers that are returned from the name server that were queried.</li>
+  </ul>
+
+  <h2>DNS Resolution Process for CNAME Records</h2>
+  <p>
+    1. A DNS client (such as a browser or network device) requests the address www.example.com, and a DNS request is created.
+    2. A DNS resolver receives the request and finds the Authoritative Name Server that holds the DNS Zone file with DNS records for the “example.com” domain.
+    3. The DNS request is resolved and the CNAME record is returned to the client.
+    4. The client understands www.example.com is only an alias for the real address, “example.com”, and issues a new DNS query for “example.com”
+    5. The process is repeated and the resolver returns the A record for “example.com”, containing the IP address.
+    6. The DNS client now connects to “example.com” using its IP address.
+  </p>
+</body>
+</html>
