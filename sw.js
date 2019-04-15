@@ -18,7 +18,7 @@ self.addEventListener('install', e => {
         '/assets/css/main.css',
         '/assets/css/font-awesome.min.css',
         '/images/banner.jpg',
-        '/images/andres-castillo-think-outside-box.png'
+        '/images/favicon.png'
        ])
         .then(() => self.skipWaiting());
     })
