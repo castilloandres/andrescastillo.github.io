@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64326807-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-64326807-3');
+    </script>
+    <title>Why use immutable vs mutable code?</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Structured data vs. Open Graph">
+    <meta property="og:title" content="Why should I care about structured data?" />
+    <meta property="og:description" content="How Schema.org and Open Graph work and why should I care." />
+    <meta property="og:site_name" content="Andres Castillo's Blog" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.castilloandres.com/blog/tech/en/structured-data.html" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://www.castilloandres.com/images/blog/structured-data/hamburguer-recipe.png" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="shortcut icon" href="../../../images/favicon.png" />
+    <link rel="stylesheet" href="../../../assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <script type='application/ld+json'>
+    {
+       "@context":"https://schema.org",
+       "@type":"BreadcrumbList",
+       "itemListElement":[
+          {
+             "@type":"ListItem",
+             "position":1,
+             "item":{
+                "@id":"https://www.castilloandres.com/",
+                "name":"Home"
+             }
+          },
+          {
+             "@type":"ListItem",
+             "position":2,
+             "item":{
+                "@id":"https://www.castilloandres.com/blog/tech/en/why-use-mutable-vs-immutable-code.html",
+                "name":"Why use mutable vs immutable code"
+             }
+          }
+       ]
+    }
+    </script>
+    <script type="application/ld+json">
+    { "@context": "http://schema.org",
+     "@type": "BlogPosting",
+     "headline": "Why use immutable vs mutable code?",
+     "image": "",
+     "genre": "SEO",
+     "wordcount": "517",
+     "url": "https://www.castilloandres.com/blog/tech/en/why-use-mutable-vs-immutable-code.html",
+     "publisher":
+      {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Andres Castillo"
+     },
+     "datePublished": "2019-02-23",
+     "dateCreated": "2019-02-23",
+     "dateModified": "2019-02-23",
+     "mainEntityOfPage": {
+       "@type": "Blog",
+       "@id": "https://www.castilloandres.com/"
+      },
+     "description": "Why and how does structured data work? 23/02/2019 By: Andres Castillo Ormaechea For now we have two types of structured data which are Schema.org and Open Graph. Schema.org Schema.org is intended to help search engines understand, structure and link your data to avoid ambiguity (avoid having two different meanings at the same time). For example if you are talking about "apple" is the fruit or the company? Schema.org helps circumvent that problem for search engines. Another plus of structured data is that search engines can deliver rich results which means results in a fancy display like this: Here you can see how Google picks up Schema structured data the website provided in the three red squares that are: rating/reviews, cooking time and calories. You will get a higher click through rate with this kind of results display. Here is a further list on possible rich results. There are three ways or types to structure your website data in Schema: JSON-LD Microdata RDFa Below I will list an example for each type: JSON-LD script type="application/ld+json" { "@context": "http://schema.org", "@type": "Person", "name": "Andres Castillo", "additionalName" : "Andres Castillo Ormaechea", "birthdate": "1992-08-08", "birthPlace": "Caracas, Venezuela", "jobTitle": "Software Engineer", "image": "https://www.castilloandres.com/images/andres-castillo.jpg", "mainEntityOfPage": "https://www.castilloandres.com/about.html", "knowsLanguage": "Spanish, English, French", "sameAs": [ "https://www.linkedin.com/in/andrescastillo1/", "https://github.com/castilloandres", "https://www.instagram.com/castillodres/", "https://twitter.com/castillodres" ] } /script Microdata div itemscope itemtype="https://schema.org/Person" pMy name is span itemprop="name"Neil/span./p pMy band is called span itemprop="band"Four Parts Water/span./p pI am span itemprop="nationality"British/span./p /div RDFa: Resource Description Framework in Attributes div vocab="http://schema.org/" typeof="Person" a property="image" href="http://manu.sporny.org/images/manu.png" span property="name"Manu Sporny/span/a, span property="jobTitle"Founder/CEO/span div Phone: span property="telephone"(540) 961-4469/span /div div E-mail: a property="email" href="mailto:msporny@digitalbazaar.com"msporny@digitalbazaar.com/a /div div Links: a property="url" href="http://manu.sporny.org/"Manu's homepage/a /div /div Open Graph Protocol. On the other hand we have Open Graph that are a way of structuring your data so your content can be represented like rich objects in a social graph. In other words when you share a link it is nicely displayed in the social platform you are sharing it. Let's show that in an example to get a better understanding of it. Here we see that when we add the CNN link to share it in our Facebook timeline it picks up some specific information so it can display it in a nice way. As we show it we can see that the properties are the image, url, title and description of the article which is a nice way to digest the information when we are scrolling thru a feed. Let's see now how machines or computers see that: meta property="og:title" content="Andres Castillo's Blog" / meta property="og:description" content="Andres Castillo Ormaechea's blog is a detailed narrative on technical and non-technical experiments and past experiences focusing on tech travel and sports." / meta property="og:type" content="website" / meta property="og:url" content="https://www.castilloandres.com/" / meta property="og:locale" content="en_US" / meta property="og:image" content="https://www.castilloandres.com/images/banner.jpg" / The code can be placed just below the title tag of the page. The code or meta data can be placed just below the title tag of the page. Open Graph's use can be seen in the following social platforms: Facebook posts. Twitter cards and Whatsapp messages. Tools for checking structured data: There are several tools for structured data that can help you check if your content is correctly structured: Google Structured Data Testing Tool Google Rich Results Test WooRank.com Open Graph Check"
+    ,
+     "author": {
+        "@type": "Person",
+        "name": "Andres Castillo",
+        "additionalName" : "Andres Castillo Ormaechea"
+      },
+      "editor": {
+        "@type": "Person",
+        "name": "Andres Castillo",
+        "additionalName" : "Andres Castillo Ormaechea"
+      }
+     }
+  </script>
+  </head>
+  <body>
+
+    <!-- Page Wrapper -->
+      <div id="page-wrapper">
+
+        <!-- Menu -->
+          <nav id="nav">
+              <ul>
+                <li><a href="../../../index.html">Blog</a></li>
+                <li><a href="../../../projects.html">Projects</a></li>
+                <li><a href="../../../about.html">About</a></li>
+                <!-- <li><a href="../../contact.html">Contact</a></li> -->
+              </ul>
+          </nav>
+        <!-- Main -->
+          <article id="main">
+            <header style="background-image:url('../../../images/blog/structured-data/hamburguer-recipe-big.png')">
+              <h1>Why use immutable vs mutable code?</h1>
+              <p>23/02/2019</p>
+              <h6>By: Andres Castillo Ormaechea</h6>
+            </header>
+            <section class="wrapper style5">
+              <div class="inner">
+                <p>I am creating this post because I was using a simple for loop that drove me into a rabbit hole for two (2) days. So I thought I should at least dedicate a small post to explain how to avoid this from the very beginning.</p>
+
+                <h3>But first. What the heck is mutable and immutable code?</h3>
+                <p>The word mutable refers to "liable to change" or simply put "changeable". When talking about mutable code we are referring specifically to mutable data structures like objects -> {} , arrays -> [] etc. and there possibility of changing its form or structure. An example to illustrate mutable and immutable code:</p>
+                <p>Let's say our friend Ramón wants to change their name to Francisco. So we will do it first with mutability:</p>
+<pre><code>> let ramon = {
+    name: 'Ramón',
+    Surname: 'Melao',
+    age: 21
+  };
+
+// Here we change Ramon's name a.k.a mutate to "Francisco"
+> ramon.name = 'Franciso';
+
+> { name: 'Franciso', Surname: 'Melao', age: 21 }
+</code></pre>
+                <p>Now, lets do the same with immutability:</p>
+<pre><code>> const ramon = {
+    name: 'Ramón',
+    Surname: 'Melao',
+    age: 21
+  };
+
+// Here we create a new object with Ramon's new name -> Francisco.
+const { name, ..rest } = ramon;
+> const francisco = {
+  name: 'Francisco',
+   ...rest
+};
+
+> { name: 'Franciso', Surname: 'Melao', age: 21 }
+</code></pre>
+              <p>Can you notice the difference between the two? We can see here that instead of changing an object property of ramon we decided to create a new object that will incorporate the changes we wanted to make in the name.</p>
+              <h2>Ok, I see... But what is the point? How can this benefit me?</h2>
+              <p>When we write mutable code we are making changes to data structures that already exist and in turn there is a higher possibility of clashing pointers when using variables in the mix which brings up unexpected behaviour in all sorts of ways and that is hard to debug when not being aware of a variable pointing to two different objects (clashing pointers) that in the end takes you to a rabbit hole (somewhere you don't want to be).</p>
+              <p>On the other hand when we use immutable code there is no possibility for clashing pointers since we are always creating new data structures instead of modifying and re-using old ones.</p>
+
+              <p>Let's go over an example where we can se some unexpected behaviour happening:</p>
+              </div>
+            </section>
+          </article>
+        <!-- Footer -->
+          <footer id="footer">
+            <ul class="icons">
+              <li><a href="https://es.linkedin.com/in/andrescastillo1" class="icon fa-linkedin">.</a></li>
+              <li><a href="https://github.com/castilloandres" class="icon fa-github">.</a></li>
+              <li><a href="https://instagram.com/castillodres" class="icon fa-instagram">.</a></li>
+              <li><a href="mailto:castilloandres17@gmail.com" class="icon fa-envelope-o">.</a></li>
+              <li><a href="https://twitter.com/castillodres" class="icon fa-twitter">.</a></li>
+            </ul>
+            <ul class="copyright">
+              <li>&copy; Andres Castillo Ormaechea</li>
+            </ul>
+          </footer>
+
+      </div>
+
+    <!-- Scripts -->
+      <script src="../../../assets/js/jquery.min.js"></script>
+      <script src="../../../assets/js/jquery.scrollex.min.js"></script>
+      <script src="../../../assets/js/jquery.scrolly.min.js"></script>
+      <script src="../../../assets/js/skel.min.js"></script>
+      <script src="../../../assets/js/util.js"></script>
+      <!--[if lte IE 8]><script src="../../../assets/js/ie/respond.min.js"></script><![endif]-->
+      <script src="../../../assets/js/main.js"></script>
+
+  </body>
+</html>

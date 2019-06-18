@@ -37,7 +37,7 @@
              "position":1,
              "item":{
                 "@id":"https://www.castilloandres.com/",
-                "name":"Home"
+                "name":"Blog"
              }
           },
           {
@@ -62,8 +62,19 @@
      "publisher":
       {
         "@context": "http://schema.org",
-        "@type": "Person",
-        "name": "Andres Castillo"
+        "@type": "Organization",
+        "name": "Andres Castillo",
+        "logo": {
+          "@context": "http://schema.org",
+          "@type": "ImageObject",
+          "author": "Andres Castillo",
+          "url": "https://www.castilloandres.com/images/favicon.png",
+          "datePublished": "2019-02-26",
+          "description": "Andres Castillo .Org Logo",
+          "name": "Andres Castillo Logo",
+          "width": 34,
+          "height": 33
+        }
      },
      "datePublished": "2019-02-21",
      "dateCreated": "2019-02-21",
@@ -72,7 +83,7 @@
        "@type": "Blog",
        "@id": "https://www.castilloandres.com/"
       },
-     "description": "When we want to count characters in a JavaScript string we can use .length property as follows: >'abc'.length 3 >'four'.length 4 >'hello'.length 5 And voilá everything seems great no? We can output the number of characters our string has. Nevertheless not 100% true. What is the problem. We are counting code points and not characters. Let's illustrate it in an example: >'💩'.length 2 > '𝐀'.length 2 > '再'.length 2 >'👩‍❤️‍💋‍👩'.length 11 We are counting code points. There are some use cases where characters are composed of two ore more code points like: emojis, bold characters, and some foreign character sets. What are code points? To be on the same page let's get a few concepts before we dive into code points: Graphemes can be composed by multiple symbols. For example the grapheme 👩‍❤️‍💋‍👩 is composed of four (4) symbols which are 👩 + ❤ + 💋 + 👩. Symbols are the single unit of information that humans can understand in readable text. Symbols can be composed of one or multiple code points. For example the symbol pile of poop 💩 is composed of two (2) symbols which are \uD83D + \uDCA9. Or the symbol 再 is composed of two (2) code points \uD87E + \uDC15. As a last example the bold capital letter 𝐀 is composed by two code points \uD835 + \uDC00 '💩' === \uD83D + \uDCA9 '再' === \uD87E + \uDC15 '𝐀' === \uD835 + \uDC00 Code points are the single unit of information that computers understand. A code point represents a single value in the unicode standard. For example computers understand \uD835 + \uDC00 which is equal to what we humans understand as 𝐀. How can we fix this? The first easy and straightforward approach is to use Array.from that will split symbols in to an array and then count the length of that array. > Array.from('𝐀').length 1 > Array.from('💩').length 1 > Array.from('再').length 1 This approach will cover most of the readable text use cases (not emojis) and most foreign character sets. For going further down the rabbit hole for counting emoji sequences, diacritics and 0 width characters there are some npm libraries that can help with that. Why is this important Knowing how computers and humans understand a single unit of information and how we are able to go back and forth between these two worlds is important to dive into more complex problems."
+     "description": "When we want to count characters in a JavaScript string we can use .length property as follows: >'abc'.length 3 >'four'.length 4 >'hello'.length 5 And voilá everything seems great no? We can output the number of characters our string has. Nevertheless not 100% true. What is the problem. We are counting code points and not characters. Let's illustrate it in an example: >'💩'.length 2 > '𝐀'.length 2 > '再'.length 2 >'👩‍❤️‍💋‍👩'.length 11 We are counting code points. There are some use cases where characters are composed of two ore more code points like: emojis, bold characters, and some foreign character sets. What are code points? To be on the same page let's get a few concepts before we dive into code points: Graphemes can be composed by multiple symbols. For example the grapheme 👩‍❤️‍💋‍👩 is composed of four (4) symbols which are 👩 + ❤ + 💋 + 👩. Symbols are the single unit of information that humans can understand in readable text. Symbols can be composed of one or multiple code points. For example the symbol pile of poop 💩 is composed of two (2) symbols which are \\uD83D + \\uDCA9. Or the symbol 再 is composed of two (2) code points \\uD87E + \\uDC15. As a last example the bold capital letter 𝐀 is composed by two code points \\uD835 + \\uDC00 '💩' === \\uD83D + \\uDCA9 '再' === \\uD87E + \\uDC15 '𝐀' === \\uD835 + \\uDC00 Code points are the single unit of information that computers understand. A code point represents a single value in the unicode standard. For example computers understand \\uD835 + \\uDC00 which is equal to what we humans understand as 𝐀. How can we fix this? The first easy and straightforward approach is to use Array.from that will split symbols in to an array and then count the length of that array. > Array.from('𝐀').length 1 > Array.from('💩').length 1 > Array.from('再').length 1 This approach will cover most of the readable text use cases (not emojis) and most foreign character sets. For going further down the rabbit hole for counting emoji sequences, diacritics and 0 width characters there are some npm libraries that can help with that. Why is this important Knowing how computers and humans understand a single unit of information and how we are able to go back and forth between these two worlds is important to dive into more complex problems."
     ,
      "author": {
         "@type": "Person",
