@@ -6,12 +6,12 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://www.castilloandres.com/</loc>
-    <lastmod>2018-12-18T16:38:45+00:00</lastmod>
+    <lastmod>2019-06-18T16:38:45+00:00</lastmod>
     <priority>1.00</priority>
   </url>
   <url>
     <loc>https://www.castilloandres.com/index.html</loc>
-    <lastmod>2018-12-18T16:38:45+00:00</lastmod>
+    <lastmod>2019-06-18T16:38:45+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
@@ -45,23 +45,28 @@
     <priority>0.64</priority>
   </url>
   <url>
+    <loc>https://www.castilloandres.com/blog/tech/en/index.html</loc>
+    <lastmod>2019-06-18T16:38:45+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
     <loc>https://www.castilloandres.com/blog/tech/en/google-mobile-friendly-test-font-size.html</loc>
-    <lastmod>2018-12-18T16:38:45+00:00</lastmod>
+    <lastmod>2019-06-18T16:38:45+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.castilloandres.com/blog/tech/en/how-to-count-characters-in-a-javascript-string.html</loc>
-    <lastmod>2019-02-21T16:38:45+00:00</lastmod>
+    <lastmod>2019-06-18T16:38:45+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.castilloandres.com/blog/tech/en/structured-data.html</loc>
-    <lastmod>2019-02-23T16:38:45+00:00</lastmod>
+    <lastmod>2019-06-18T16:38:45+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.castilloandres.com/blog/tech/en/set-up-godaddy-mail-in-gmail.html</loc>
-    <lastmod>2018-06-16T16:38:45+00:00</lastmod>
+    <lastmod>2019-06-18T16:38:45+00:00</lastmod>
     <priority>0.80</priority>
   </url>
 </urlset>
