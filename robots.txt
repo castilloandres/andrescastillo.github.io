@@ -4,5 +4,4 @@ Sitemap: https://www.castilloandres.com/sitemap.xml
 Disallow: /pocs
 Disallow: /blog/tech/en/mobile-tap-targets.html
 Disallow: /blog/tech/en/npm-binary-files.html
-Disallow: /blog/tech/en/why-use-immutable-vs-mutable-code.html
 

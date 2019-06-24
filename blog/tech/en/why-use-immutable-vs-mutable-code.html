@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="../../../assets/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <link rel="canonical" href="https://www.castilloandres.com/blog/tech/en/why-use-mutable-vs-immutable-code.html" />
     <script type='application/ld+json'>
     {
        "@context":"https://schema.org",
@@ -233,33 +234,9 @@ I would encourage the use of functions like .map().filter() and .reduce() since 
                 <h3>But first. What the heck is mutable and immutable code?</h3>
                 <p>The word mutable refers to "liable to change" or simply put "changeable" code. When talking about mutable code we are referring specifically to mutable data structures like objects <code>{ apple: "fruit"}</code> , arrays <code>["apple", "banana"]</code> etc. and there possibility of changing its form or structure. An example to illustrate mutable and immutable code:</p>
                 <p>Let's say we have a collection of food with their category. We noticed there is a mistake so we want to update the object in order to be correct. Let's do this first with mutability:</p>
-<pre><code>let food = {
-  apple: "fruit",
-  banana: "fruit",
-  tomato: "vegetable"
-};
-
-// Here we update tomato to be a "fruit" (which really is a fruit haha)
-food.tomamto = 'fruit';
-
-// { apple: "fruit", banana: "fruit", tomato: "fruit" }
-</code></pre>
+<script src="https://gist.github.com/castilloandres/5f88d18de5c3dfd1bf60d8939c560eac.js"></script>
                 <p>Now, lets do this with immutability:</p>
-<pre><code>let food = {
-  apple: "fruit",
-  banana: "fruit",
-  tomato: "vegetable"
-};
-
-// Here we create a new object with the updated properties.
-const { tomato, ..rest } = food;
-const updatedFood = {
-  tomato: 'fruit',
-  ...rest
-};
-
-// { apple: "fruit", banana: "fruit", tomato: "fruit" }
-</code></pre>
+<script src="https://gist.github.com/castilloandres/5f1ff5d6ef9b96ef114ef557fe284a68.js"></script>
               <p>Can you notice the difference between the two? We can see here that instead of changing an object property we decided to create a whole new object that will incorporate the changes we wanted to make.</p>
               <h2>Ok, I see... But what is the point? How can this benefit me?</h2>
               <p>Using immutable code can benefit you in the following ways:</p>
@@ -275,19 +252,9 @@ const updatedFood = {
                 <li>Assign by reference.</li>
               </ul>
               <h2>How assign by value in JavaScript works.</h2>
-<pre><code>var tomatoes = 3;
-var apples = tomatoes;   //assign by value
-tomatoes++;
-console.log(apples);     //3
-console.log(tomatoes);   //4
-</code></pre>
+<script src="https://gist.github.com/castilloandres/fa76b32e2cf8763ebcdf25e35ee4e5f2.js"></script>
 <h2>How assign by reference in JavaScript works.</h2>
-<pre><code>var fruits = ['apple', 'banana', 'kiwi'];
-var exoticFruits = fruits;   //assign by reference
-exoticFruits.push('mango');
-console.log(fruits);        //['apple', 'banana', 'kiwi', 'mango']
-console.log(exoticFruits);  //['apple', 'banana', 'kiwi', 'mango']
-</code></pre>
+<script src="https://gist.github.com/castilloandres/5f0da1a25420b0ce61c6a8a4a7aa8bdb.js"></script>
   <p>What happens here is that in JavaScript Arrays and Objects work with references, this means that the assignment is an address in memory that holds the value so creating another variable like we did with <code>var exoticFruits = fruits;</code> will just hold the same address as <code>fruits</code> hence returning the same value.</p>
 
   <p>Primitive data types (String, Number, Boolean, undefined, null, Symbol) work with assignments by value so they will directly store the value that was assigned instead of a reference (address in memory).</p>
@@ -297,41 +264,10 @@ console.log(exoticFruits);  //['apple', 'banana', 'kiwi', 'mango']
  <p>I was not able to replicate exactly the reference clash issue I encountered but I will share with you two different pieces of code to illustrate the use of mutable and immutable code:</p>
 
  <h2>Mutable code</h2>
-<pre><code>fromData => {
-  if (fromData.length > 0) {
-    for (i = 0; i < fromData.length; i++) {
-      fromData[i]['snippet'] = fromData[i]['tagName'];
-      delete fromData[i]['tagName'];
-      if (fromData[i].failingTapNeighbours.length > 0) {
-        for (j = 0; j < fromData[i].failingTapNeighbours.length; j++) {
-          fromData[i].failingTapNeighbours[j]['snippet'] = fromData[i].failingTapNeighbours[j]['tagName'];
-          delete fromData[i].failingTapNeighbours[j]['tagName'];
-        }
-      }
-    }
-  }
-
-  return fromData;
-}
-</code></pre>
+<script src="https://gist.github.com/castilloandres/aa28e819543216a8a309ab50f6ba7ff2.js"></script>
 
  <h2>Immutable code</h2>
-<pre><code>fromData => {
-  return fromData.map(tapTarget => {
-    const { tagname, failingTapNeighbours, ...rest } = tapTarget;
-    return {
-      snippet: tagname,
-      ...rest,
-      failingTapNeighbours: failingTapNeighbours.map(neighbor => {
-        const { tagname, ...rest };
-        return {
-          snippet: tagname,
-          ...rest
-        };
-      })
-    }
-  });
-}
+<script src="https://gist.github.com/castilloandres/5480c24559ea384d9ab57bbab2d4d751.js"></script>
 </code></pre>
 <p>Isn't the immutable approach much easier to read? For some reason I always thought that creating new instances in the process would complicate things and make it much harder to read. But this is not the case. With immutable code I was able to:</p>
 <ul>
