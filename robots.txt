@@ -1,7 +1,8 @@
 User-agent: *
 
 Sitemap: https://www.castilloandres.com/sitemap.xml
-Disallow: /pocs
+Disallow: /pocs/
+Disallow: /archives/
 Disallow: /blog/tech/en/mobile-tap-targets.html
 Disallow: /blog/tech/en/npm-binary-files.html
 

@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64326807-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-64326807-3');
+    </script>
+    <title>How many types of apps exist?</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Why use immutable vs mutable code in JavaScript?">
+    <meta property="og:title" content="Why use immutable vs mutable code in JavaScript?" />
+    <meta property="og:description" content="What are the benefits of using immutable code in JavaScript." />
+    <meta property="og:site_name" content="Andres Castillo's Blog" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.castilloandres.com/blog/tech/en/structured-data.html" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://www.castilloandres.com/images/blog/mutable-vs-immutable/paris-13ieme-small.jpeg" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="shortcut icon" href="../../../images/favicon.png" />
+    <link rel="stylesheet" href="../../../assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <link rel="canonical" href="https://www.castilloandres.com/blog/tech/en/why-use-mutable-vs-immutable-code.html" />
+    <script type='application/ld+json'>
+    {
+       "@context":"https://schema.org",
+       "@type":"BreadcrumbList",
+       "itemListElement":[
+          {
+             "@type":"ListItem",
+             "position":1,
+             "item":{
+                "@id":"https://www.castilloandres.com/",
+                "name":"Home"
+             }
+          },
+          {
+             "@type":"ListItem",
+             "position":2,
+             "item":{
+                "@id":"https://www.castilloandres.com/blog/tech/en/why-use-mutable-vs-immutable-code.html",
+                "name":"Why use immutable vs mutable code in JavaScript?"
+             }
+          }
+       ]
+    }
+    </script>
+    <script type="application/ld+json">
+    { "@context": "http://schema.org",
+     "@type": "BlogPosting",
+     "headline": "Why use immutable vs mutable code in JavaScript?",
+     "image": "https://www.castilloandres.com/images/blog/mutable-vs-immutable/paris-13ieme-small.jpeg",
+     "genre": "JavaScript",
+     "wordcount": "723",
+     "url": "https://www.castilloandres.com/blog/tech/en/why-use-mutable-vs-immutable-code.html",
+     "publisher":
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "Andres Castillo",
+        "logo": {
+          "@context": "http://schema.org",
+          "@type": "ImageObject",
+          "author": "Andres Castillo",
+          "url": "https://www.castilloandres.com/images/favicon.png",
+          "datePublished": "2019-02-26",
+          "description": "Andres Castillo .Org Logo",
+          "name": "Andres Castillo Logo",
+          "width": 34,
+          "height": 33
+        }
+     },
+     "datePublished": "2019-06-23",
+     "dateCreated": "2019-06-23",
+     "dateModified": "2019-06-23",
+     "mainEntityOfPage": {
+       "@type": "Blog",
+       "@id": "https://www.castilloandres.com/"
+      },
+     "description": ""
+    ,
+     "author": {
+        "@type": "Person",
+        "name": "Andres Castillo",
+        "additionalName" : "Andres Castillo Ormaechea"
+      },
+      "editor": {
+        "@type": "Person",
+        "name": "Andres Castillo",
+        "additionalName" : "Andres Castillo Ormaechea"
+      }
+     }
+  </script>
+  </head>
+  <body>
+
+    <!-- Page Wrapper -->
+      <div id="page-wrapper">
+
+        <!-- Menu -->
+          <nav id="nav">
+              <ul>
+                <li><a href="../../../index.html">Blog</a></li>
+                <li><a href="../../../projects.html">Projects</a></li>
+                <li><a href="../../../about.html">About</a></li>
+                <!-- <li><a href="../../contact.html">Contact</a></li> -->
+              </ul>
+          </nav>
+        <!-- Main -->
+          <article id="main">
+            <header style="background-image:url('../../../images/blog/mutable-vs-immutable/paris-13ieme.jpeg')">
+              <h1>Why use immutable vs mutable code in JavaScript?</h1>
+              <p>23/06/2019</p>
+              <h6>By: Andres Castillo Ormaechea</h6>
+            </header>
+            <section class="wrapper style5">
+              <div class="inner">
+              </div>
+            </section>
+          </article>
+        <!-- Footer -->
+          <footer id="footer">
+            <ul class="icons">
+              <li><a href="https://es.linkedin.com/in/andrescastillo1" class="icon fa-linkedin">.</a></li>
+              <li><a href="https://github.com/castilloandres" class="icon fa-github">.</a></li>
+              <li><a href="https://instagram.com/castillodres" class="icon fa-instagram">.</a></li>
+              <li><a href="mailto:castilloandres17@gmail.com" class="icon fa-envelope-o">.</a></li>
+              <li><a href="https://twitter.com/castillodres" class="icon fa-twitter">.</a></li>
+            </ul>
+            <ul class="copyright">
+              <li>&copy; Andres Castillo Ormaechea</li>
+            </ul>
+          </footer>
+
+      </div>
+
+    <!-- Scripts -->
+      <script src="../../../assets/js/jquery.min.js"></script>
+      <script src="../../../assets/js/jquery.scrollex.min.js"></script>
+      <script src="../../../assets/js/jquery.scrolly.min.js"></script>
+      <script src="../../../assets/js/skel.min.js"></script>
+      <script src="../../../assets/js/util.js"></script>
+      <!--[if lte IE 8]><script src="../../../assets/js/ie/respond.min.js"></script><![endif]-->
+      <script src="../../../assets/js/main.js"></script>
+
+  </body>
+</html>
