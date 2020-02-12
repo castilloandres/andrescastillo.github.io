@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+  <h3>Socketgen</h3>
+  <ul>
+    <li>Database Migrations</li>
+    <li>Queue system and webhooks implementation</li>
+    <li>Facebook SDK: implementation for user and app tokens to retrieve user and analytics data.</li>
+    <li>Performance: calculate asset minification, assets compressions, assets cacheability.</li>
+    <li>Implement share count api: how many times your url was shared in social media.</li>
+    <li>Website Keyword suggestion with Analytics data:</li>
+  </ul>
+  <h3>Google Analytics</h3>
+  <ul>
+    <li>Add Google top search queries to suggested keywords for keyword tracking.</li>
+    <li>Google Analytics and Google Search Console Authentication for data retrieval and missmatch with other website data.</li>
+  </ul>
+
+  <h3>API</h3>
+  <ul>
+    <li>Build an API + documentation (redoc) + versioning (braking changes and backwards compatibility)</li>
+    <li>Build zapier integration</li>
+    <li>PDF generation system</li>
+    <li>Implement tool features in the API: website review, pages review, pdf, keyword tracking</li>
+    <li>Rate limiting</li>
+  </ul>
+
+  <h3>Pagefetcher</h3>
+  <ul>
+    <li>Puppeteer (Headless Chrome Node.js API) thru devtools protocol API: run any website in chrome and obtain information about it thru an API.</li>
+    <li>Nodejs debugger: docker + nodejs app + node inspect npm command (package.json)</li>
+    <li>Tap targets implementation: calculate how close and big buttons are for user friendliness</li>
+    <li>Mobile friendliness implementation isntead of consuming api: tap targets, font size detection (+ invisible text), viewport detection, plugins detection (flash, silverlight, java).</li>
+    <li>Image optimization: image display size and serve images in next-gen formats (better for compression).</li>
+    <li>JS, CSS minification, compression and cacheability.</li>
+  </ul>
+
+  <h3>hydra (React redux)</h3>
+  <ul>
+    <li>PDF download tracking</li>
+  </ul>
+
+  <h3>Front</h3>
+  <ul>
+    <li>Payment flow: payment gateway, payment methods (paypal, credit card), cupons, plans, follow-ups, cancellations, reactivations.</li>
+    <li>PDF Reactor implementation: html to pdf report.</li>
+    <li>Subscription page details</li>
+  </ul>
+
+  <h3>PDF template backend</h3>
+  <ul>
+    <li>PDF custom template system for users</li>
+  </ul>
+
+  <h3>Google Webmaster Tools (Google Search Console) GWT</h3>
+  <ul>
+    <li>K8S Worker for retrieving weekly data on top search queries</li>
+    <li>Crawl errors worker.</li>
+    <li>Database token migrations.</li>
+  </ul>
+
+  <h3>WooIndex: index and csv export of websites with filtered data: popularity, country technologies and woorank metrics (backlinks, mobile optimization, custom 404, social media etc/)</h3>
+  <ul>
+    <li>Wappalyzer wrapper: npm package for detecting technologies on a website: https://www.npmjs.com/package/wappalyzer-wrapper</li>
+  </ul>
+
+  <h3>Middlelayer</h3>
+  <ul>
+    <li>Summary: all the payments and subscriptions system.</li>
+    <li>Subscription sync with Recurly system. So WooRank + Recurly (Subscriptions and payments system). All credit card information was stored in recurly and subscription data was stored both in Recurly and WooRank databases.</li>
+    <li>Notifications system. Each time a there was a change in a subscription Recurly would send a webhook to WooRank so woorank databases and Recurly are in sync.</li>
+    <li>PDF download tracking.</li>
+    <li>User login tracking.</li>
+    <li>User Dropouts tracking.</li>
+    <li>User cancel flow with requested form data in why they cancelled.</li>
+  </ul>
+</body>
+</html>
